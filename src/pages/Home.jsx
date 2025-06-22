@@ -13,6 +13,7 @@ const Home = () => {
             {/* Volunteer needs now section */}
 
                 <AllPosts/>
+                
 
 
             {/* 2 extra sections */}
