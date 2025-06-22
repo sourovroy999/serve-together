@@ -41,6 +41,8 @@ const UpdatePost = () => {
 
     }
 
+    
+
     return (
            <div className="pb-20">
             <p className="text-2xl text-center my-6">Update your Post</p>

@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import { Link } from "react-router";
 import Swal from "sweetalert2";
 
@@ -26,7 +27,43 @@ const MyPosts = () => {
         
     }
 
-    const handlePostDelete=(id)=>{
+    const handlePostDelete=async(id)=>{
+     
+
+         const result= await  Swal.fire ({
+  title: "Are you sure?",
+  text: "You won't be able to revert this!",
+  icon: "warning",
+  showCancelButton: true,
+  confirmButtonColor: "#3085d6",
+  cancelButtonColor: "#d33",
+  confirmButtonText: "Yes, Delete My Request!"
+})
+
+if (result.isConfirmed) {
+
+    try {
+        const{data}=await axios.delete(`http://localhost:8000/delete-post/${id}`) 
+          const remaining=posts.filter(post=> post._id !==id)
+         setVolunteers(remaining)
+         getData()
+
+          Swal.fire({
+      title: "Deleted!",
+      text: "Your Post has been deleted.",
+      icon: "success"
+    });
+    
+
+    } catch (error) {
+        console.log(error);
+          Swal.fire("Something went wrong. Try again.");
+    }
+
+ 
+  }
+
+
       
 
     }
