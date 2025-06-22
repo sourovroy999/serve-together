@@ -1,7 +1,11 @@
 import axios from "axios";
+// import { useState } from "react";
+import DatePicker from "react-datepicker";
 import toast from "react-hot-toast";
 
 const AddVolunteer = () => {
+            //   const [startDate, setStartDate] = useState(new Date());
+
 
     const handleAddVolunteer=async(e)=>{
         e.preventDefault()
@@ -64,7 +68,10 @@ const AddVolunteer = () => {
         <input name="volunteernumber" type="number" placeholder="No Of Volunteer Needed"  className="border max-w-xs py-1 px-2 rounded-md"/>
 
         {/* deadline */}
-        <label htmlFor="">Deadline</label>
+        <div>
+          
+        </div>
+        
 
 
         <label className="">Organizer Name</label> 

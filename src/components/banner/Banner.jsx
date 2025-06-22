@@ -7,7 +7,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
-import './styles.css';
+import '../../style.css';
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
@@ -15,28 +15,77 @@ import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 
 import bannerOne from '../../assets/banners/volunteer-one.jpg'
 import bannerTwo from '../../assets/banners/volunteer-two.jpg'
-import bannerThree from '../../assets/banners/volunteer-three.jpg'
-import bannerFour from '../../assets/banners/volunteer-four.jpg'
+// import bannerThree from '../../assets/banners/volunteer-three.jpg'
+// import bannerFour from '../../assets/banners/volunteer-four.jpg'
 
 const Banner = () => {
 
 
     return (
-        <div >
+        <div className='max-w-6xl mx-auto'>
             <Swiper
             spaceBetween={30}
            centeredSlides={true}
             autoplay={{
           delay: 2500,
-          disableOnInteraction: false,
+          disableOnInteraction: true,
         }}
           navigation={true}
         modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper"
             >
-                 <SwiperSlide>{bannerOne}</SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
+                 <SwiperSlide>
+                  
+                  <img src={bannerOne} alt="" />
+                  <div className='absolute inset-0 bg-[#00000097]'></div>
+                  <div className="absolute inset-0 flex items-center mx-2 md:ml-32  ">
+
+                  <div>
+                  <p className='text-5xl md:text-7xl text-white font-bold mb-6'>Join The <br /> Movement</p>
+
+          <p className="text-white text-xl md:text-3xl font-bold max-w-xl">Don’t wait for change—be the change. Step up, take action, and lead the way towards a better tomorrow
+
+</p>
+                  </div>
+        
+                  </div>
+
+
+                 </SwiperSlide>
+                 <SwiperSlide>
+                  <img src={bannerTwo} alt="" />
+                  <div className='absolute inset-0 bg-[#00000097]'></div>
+                  <div className="absolute inset-0 flex items-center mx-2 md:ml-32  ">
+
+                  <div>
+                  <p className='text-5xl md:text-6xl font-bold text-white mb-6'>Need Volunteers? <br /> Post Your Opportunity</p>
+
+          <p className="text-white text-xl md:text-3xl font-bold max-w-xl">Don’t wait for change—be the change. Step up, take action, and lead the way towards a better tomorrow
+
+</p>
+                  </div>
+        
+                  </div>
+                 
+                 </SwiperSlide>
+
+                 <SwiperSlide>
+                  <img src={''} alt="" />
+                    <div className='absolute inset-0 bg-[#00000097]'></div>
+                  <div className="absolute inset-0 flex items-center mx-2 md:ml-32  ">
+
+                  <div>
+                  <p className='text-5xl md:text-6xl text-white font-bold mb-6'>Turn Compassion <br />  Into Action</p>
+
+          <p className="text-white text-xl md:text-3xl font-bold max-w-xl">Whether it's a local clean-up or a global cause — every small step matters. Start volunteering today.
+
+         </p>
+                  </div>
+        
+                  </div>
+                  </SwiperSlide>
+        {/* <SwiperSlide>{bannerTwo}</SwiperSlide>
+        <SwiperSlide>{bannerThree}</SwiperSlide> */}
 
             </Swiper>
             
