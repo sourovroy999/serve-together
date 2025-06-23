@@ -1,7 +1,8 @@
-import React, { createContext, use, useEffect, useState } from 'react';
+import React, { createContext,  useEffect, useState } from 'react';
 import app from '../firebase/firebase.config';
 import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
 import axios from 'axios';
+import toast from 'react-hot-toast';
 
 export const AuthContext=createContext(null)
 const auth=getAuth(app)
@@ -35,6 +36,13 @@ const AuthProvider = ({children}) => {
         const{data}=await axios('http://localhost:8000/logout', {withCredentials: true})
         
         return signOut(auth)
+        .then(()=>{
+            toast.success('SignOut Successfully')
+        })
+        .catch((err)=>{
+            toast.error(err)
+        })
+        
     }
 
     

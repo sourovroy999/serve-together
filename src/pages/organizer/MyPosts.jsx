@@ -3,25 +3,36 @@ import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { Link } from "react-router";
 import Swal from "sweetalert2";
+import UseAxiosSecure from "../../hooks/UseAxiosSecure";
+import UseAuth from "../../hooks/UseAuth";
 
 const MyPosts = () => {
+
+  const axiosSecure=UseAxiosSecure()
+  const{user}=UseAuth()
 
     const[posts, setPosts]=useState([])
     const[volunteers, setVolunteers]=useState([])
     // console.log(posts);
+    console.log(volunteers);
+    
+
+
     
 
     useEffect(()=>{
         getData()
         getVolunteersData()
-    }, [])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [user])
 
 
-    //volunteer needed related
+    //volunteer needed related (by the organizer)
+    
     const getData=async()=>{
-        const email='sourov@gmail.com'
+        // const email='sourov@gmail.com'
 
-        const {data}=await axios(`http://localhost:8000/organization/${email}`, )
+        const {data}=await axiosSecure(`http://localhost:8000/organization/${user.email}`)
         // console.log(data);
         setPosts(data)
         
@@ -43,7 +54,7 @@ const MyPosts = () => {
 if (result.isConfirmed) {
 
     try {
-        const{data}=await axios.delete(`http://localhost:8000/delete-post/${id}`) 
+        const{data}=await axiosSecure.delete(`http://localhost:8000/delete-post/${id}`) 
           const remaining=posts.filter(post=> post._id !==id)
          setVolunteers(remaining)
          getData()
@@ -74,8 +85,8 @@ if (result.isConfirmed) {
 
 // volunteers request related
     const getVolunteersData=async()=>{
-        const email="sourov@gmail.com" 
-        const {data}=await axios(`http://localhost:8000/volunteer/${email}`)
+        
+        const {data}=await axiosSecure(`http://localhost:8000/volunteer/${user?.email}`)
         console.log(data);
         setVolunteers(data)
         
@@ -99,7 +110,7 @@ if (result.isConfirmed) {
 if (result.isConfirmed) {
 
     try {
-         const{data}= await axios.delete(`http://localhost:8000/volunteerdelete/${id}`)
+         const{data}= await axiosSecure.delete(`http://localhost:8000/volunteerdelete/${id}`)
          const updatedVolunteers=volunteers.filter(volunteer => volunteer._id !== id)
          setVolunteers(updatedVolunteers)
          getData()

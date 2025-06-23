@@ -10,6 +10,7 @@ import PostDetails from "../pages/details/PostDetails";
 import BeAVolunteer from "../pages/volunteer/BeAVolunteer";
 import AllPosts from "../components/allcards/AllPosts";
 import UpdatePost from "../pages/organizer/UpdatePost";
+import PrivateRoute from "./PrivateRoute";
 
 const router=createBrowserRouter([
     {
@@ -32,20 +33,29 @@ const router=createBrowserRouter([
             },
             {
                 path:'/add-volunteer-needed-post',
-                element:<AddVolunteer/>
+                element: <PrivateRoute>
+
+                 <AddVolunteer/>
+                 </PrivateRoute>
             },
             {
                 path:'/my-posts',
-                element:<MyPosts/>
+                element:<PrivateRoute>
+                             <MyPosts/>
+                </PrivateRoute>  
             },
             {
                 path:'/details/:id',
-                element:<PostDetails/>,
+                element: <PrivateRoute>
+                    <PostDetails/>
+                </PrivateRoute>,
                 loader:({params})=>fetch(`http://localhost:8000/post/${params.id}`)
             },
             {
                 path:'/be-a-volunteer/:id',
-                element:<BeAVolunteer/>,
+                element:<PrivateRoute>
+                    <BeAVolunteer/>
+                </PrivateRoute>,
                 loader:({params})=>fetch(`http://localhost:8000/post/${params.id}`)
             },
             {
@@ -54,7 +64,9 @@ const router=createBrowserRouter([
             },
             {
                 path:'update/:id',
-                element:<UpdatePost/>,
+                element:<PrivateRoute>
+                    <UpdatePost/>
+                </PrivateRoute>,
                 loader:({params})=>fetch(`http://localhost:8000/post/${params.id}`)
 
             }

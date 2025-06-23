@@ -31,27 +31,15 @@ const SInglePost = ({post}) => {
 
     
     return (
-        // <Link to={`/details/${_id}`}  className='card hover:scale-105  mx-auto p-6 border-0 bg-base-300 rounded-xl w-xs max-w-md'>
-        //     {/* <Link to={'/my-posts'}> */}
-        //     <p className='text-xl '><span className='font-bold'>title</span>: {title}</p>
-        //     <p><span className='font-bold'>Category:</span> {category}</p>
-        //     <p><span className='font-bold'>Description</span>: {description}</p>
-        //     <p><span className='font-bold'>Deadline</span>: {newDead}</p>
-        //     <p><span className='font-bold'>Volunteer Needed</span>: {volunteernumber}</p>
-        //     <p><span className='font-bold'>Organier Name:</span> {organizerName}</p>
-        //     <p><span className='font-bold'>Organier Email:</span>  {organizerEmail}</p>
+       
 
-            
-        //     {/* </Link> */}
-        // </Link>
-
-        <div class="   bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+        <div class=" bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
     <a href="#">
         <img className="rounded-t-lg" src={imageone} alt="" />
     </a>
 
     <div class="p-5">
-        <div className='flex justify-between'>
+        <div className='flex flex-col md:flex-row justify-between'>
 
         <div className="badge badge-info">{category}</div>
         <div className=' font-normal text-gray-700 dark:text-gray-400'>Deadline:{newDead}</div>

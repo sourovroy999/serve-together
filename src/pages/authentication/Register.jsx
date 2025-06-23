@@ -1,13 +1,17 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { AuthContext } from '../../Providers/AuthProvider';
 import toast from 'react-hot-toast';
-import { Link, useLocation, useNavigate } from 'react-router';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router';
 import axios from 'axios';
 
 const Register = () => {
+ 
+  
     
     const navigate=useNavigate()
     const location=useLocation()
+
+    
 
     const from=location.state || '/'
 
@@ -20,6 +24,12 @@ const Register = () => {
         signInWithGoogle,
         updateUserProfile,
         }= useContext(AuthContext)
+
+        useEffect(()=>{
+         if(user){
+            navigate('/')
+         }
+    },[navigate,user])
 
     const handleGoogleLogin=async()=>{
     try {
@@ -39,6 +49,9 @@ const Register = () => {
         
     }
     }
+
+      if(user || loading) return
+
 
 
 

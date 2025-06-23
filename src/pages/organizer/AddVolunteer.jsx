@@ -4,9 +4,14 @@ import DatePicker from "react-datepicker";
 import toast from "react-hot-toast";
 import "react-datepicker/dist/react-datepicker.css";
 import { subDays } from "date-fns";
+import UseAuth from "../../hooks/UseAuth";
+import { useNavigate } from "react-router";
 
 
 const AddVolunteer = () => {
+
+    const {user}=UseAuth()
+    const navigate=useNavigate()
               const [startDate, setStartDate] = useState(new Date());
 
 
@@ -21,6 +26,7 @@ const AddVolunteer = () => {
         
         try {
             const {data}=await axios.post('http://localhost:8000/organizations', newVolunteerEntries)
+            navigate('/my-posts')
             toast.success('Your Organizer data added successfully')
         } catch (err) {
             console.log(err);
@@ -39,15 +45,15 @@ const AddVolunteer = () => {
         <form onSubmit={handleAddVolunteer} action="" className="flex justify-center flex-col gap-2">
           
                 <label className="">Thumbnail URL</label> 
-        <input name="thumbnail" type="text" placeholder="Thumbnail URL"  className="border max-w-xs py-1 px-2 rounded-md"/>
+        <input name="thumbnail" type="text" placeholder="Thumbnail URL"  className="border text-black  max-w-xs py-1 px-2 rounded-md"/>
 
                 <label className="">Post Title</label> 
-        <input name="title" type="text" placeholder="Post Title"  className="border max-w-xs py-1 px-2 rounded-md"/>
+        <input name="title" type="text" placeholder="Post Title"  className="border text-black max-w-xs py-1 px-2 rounded-md"/>
 
                 <label className="">Description</label> 
           <textarea 
               className='block w-full px-4 py-2 mt-2 
-               border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring'
+               border border-gray-200 text-black rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring'
               name='description'
               id='description'
               cols='30'
@@ -57,7 +63,7 @@ const AddVolunteer = () => {
 
                 <label className="">Category</label> 
 
-        <select name="category" id="" className="border py-1 rounded-md bg-gray-500">
+        <select name="category" id="" className="border text-black py-1 rounded-md bg-white">
             <option value="Healthcare">Healthcare</option>
             <option value="Education">Education</option>
             <option value="Social Service">Social Service</option>
@@ -65,10 +71,10 @@ const AddVolunteer = () => {
         </select>
 
         <label className="">Location</label> 
-        <input name="location" type="text" placeholder="Location"  className="border max-w-xs py-1 px-2 rounded-md"/>
+        <input name="location" type="text" placeholder="Location"  className="border text-black max-w-xs py-1 px-2 rounded-md"/>
 
         <label className="">No Of Volunteer Needed</label> 
-        <input name="volunteernumber" type="number" placeholder="No Of Volunteer Needed"  className="border max-w-xs py-1 px-2 rounded-md"/>
+        <input name="volunteernumber" type="number" placeholder="No Of Volunteer Needed"  className="border text-black max-w-xs py-1 px-2 rounded-md"/>
 
         {/* deadline */}
         <label className="">Deadline</label> 
@@ -88,10 +94,10 @@ const AddVolunteer = () => {
 
 
         <label className="">Organizer Name</label> 
-        <input name="organizerName" type="text" placeholder="Organizer Name"  className="border max-w-xs py-1 px-2 rounded-md"/>
+        <input readOnly name="organizerName" type="text" defaultValue={user?.displayName}  className="border text-black max-w-xs py-1 px-2 rounded-md"/>
 
         <label className="">Organizer Email</label> 
-        <input name="organizerEmail" type="text" placeholder="Organizer Email"  className="border max-w-xs py-1 px-2 rounded-md"/>
+        <input readOnly name="organizerEmail" type="text" defaultValue={user?.email}  className="border text-black max-w-xs py-1 px-2 rounded-md"/>
 
         <button className="btn btn-info mt-4">Post</button>
 

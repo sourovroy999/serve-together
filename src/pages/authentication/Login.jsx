@@ -25,10 +25,8 @@ const Login = () => {
          
         try {
             const result=await signIn(email,password)
-
-            //eikhane aro kaj korte hobe
-
-              const {data}=await axios.post('https://localhost:8000/jwt', {
+      //eikhane aro kaj korte hobe
+         const {data}=await axios.post('http://localhost:8000/jwt', {
                email: result?.user?.email,
              } ,{
              withCredentials:true  // ei line na likhle cookie save hobe nah
@@ -65,6 +63,8 @@ navigate(from, {replace:true})
             
         }
     }
+
+      if(user || loading) return
 
   
     return (

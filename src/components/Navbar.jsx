@@ -1,14 +1,17 @@
 import { Link } from 'react-router';
-import useAuth from '../hooks/useAuth';
+import UseAuth from '../hooks/UseAuth';
 
 
 const Navbar = () => {
-   const {logOut}=useAuth()
+   const {logOut,loading, user}=UseAuth()
   const handleLogOut=()=>{
       return logOut()
       
 
   }
+  // if(loading){
+  //   <p>loading....</p>
+  // }
 
     return (
         <div className="navbar flex justify-between bg-base-100 shadow-sm">
@@ -21,19 +24,19 @@ const Navbar = () => {
   
 </div>
 
-  <div className="flex gap-2">
+ 
     {/* <input type="text" placeholder="Search" className="input input-bordered w-24 md:w-auto" /> */}
-<div className='flex flex-col md:flex-row'>
-    <Link to={'/login'}  className='btn btn-sm '>Login</Link>
 
-    <Link to={'/register'} className='btn btn-sm'>Register</Link>
-</div>
-    <div className="dropdown dropdown-end">
+
+{
+  user? <div className="dropdown dropdown-end">
       <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
         <div className="w-10 rounded-full">
           <img
-            alt="Tailwind CSS Navbar component"
-            src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+          referrerPolicy='no-referrer'
+            alt='user'
+            src={user?.photoURL} />  
+            {/* user ternary for check user , unless the page breaks */}
         </div>
       </div>
       <ul
@@ -50,9 +53,26 @@ const Navbar = () => {
         <li><Link to={'/my-posts'}>Manage My Posts </Link></li>
         <li className='btn' onClick={handleLogOut}>Log Out</li>
       </ul>
-    </div>
+    </div>:  <div className="flex gap-2">
+    <div className='flex flex-col md:flex-row'>
+
+    <Link to={'/login'}  className='btn btn-sm '>Login</Link>
+
+    <Link to={'/register'} className='btn btn-sm'>Register</Link>
+     </div>
+
+    
   </div>
-</div>
+}
+
+     
+
+
+  </div>
+
+
+
+
     );
 };
 
