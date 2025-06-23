@@ -27,7 +27,8 @@ const Banner = () => {
             spaceBetween={30}
            centeredSlides={true}
             autoplay={{
-          delay: 2500,
+            
+          delay: 900000000,
           disableOnInteraction: true,
         }}
           navigation={true}
@@ -69,7 +70,7 @@ const Banner = () => {
                  
                  </SwiperSlide>
 
-                 <SwiperSlide>
+                 {/* <SwiperSlide>
                   <img src={''} alt="" />
                     <div className='absolute inset-0 bg-[#00000097]'></div>
                   <div className="absolute inset-0 flex items-center mx-2 md:ml-32  ">
@@ -83,7 +84,7 @@ const Banner = () => {
                   </div>
         
                   </div>
-                  </SwiperSlide>
+                  </SwiperSlide> */}
         {/* <SwiperSlide>{bannerTwo}</SwiperSlide>
         <SwiperSlide>{bannerThree}</SwiperSlide> */}
 

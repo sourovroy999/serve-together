@@ -1,7 +1,7 @@
 import React, { createContext, use, useEffect, useState } from 'react';
 import app from '../firebase/firebase.config';
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
-import { GoogleAuthProvider } from 'firebase/auth/web-extension';
+import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
+import axios from 'axios';
 
 export const AuthContext=createContext(null)
 const auth=getAuth(app)
@@ -31,6 +31,8 @@ const AuthProvider = ({children}) => {
     const logOut=async()=>{
         setLoading(true)
         //    const{data}= await axios('https://solosphere-server-three.vercel.app/logout' ,{withCredentials: true})
+
+        const{data}=await axios('http://localhost:8000/logout', {withCredentials: true})
         
         return signOut(auth)
     }

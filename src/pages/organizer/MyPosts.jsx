@@ -19,7 +19,7 @@ const MyPosts = () => {
 
     //volunteer needed related
     const getData=async()=>{
-        const email='apexhealth@gmail.com'
+        const email='sourov@gmail.com'
 
         const {data}=await axios(`http://localhost:8000/organization/${email}`, )
         // console.log(data);
@@ -153,7 +153,7 @@ if (result.isConfirmed) {
                         <td>{post.organizerEmail}</td>
                         <td>{post.title}</td>
                         <td>{post.location}</td>
-                        <td>deadline need to add</td> 
+                        <td>{post.deadline}</td> 
                         <td className="flex">
                             <Link to={`/update/${post._id}`} className="btn">Update</Link>
                             <button onClick={()=>handlePostDelete(post._id)} className="btn">delete</button>
@@ -199,7 +199,7 @@ if (result.isConfirmed) {
                         <td>{volunteer.Volunteer_Email}</td>
                         <td>{volunteer.title}</td>
                         <td>{volunteer.location}</td>
-                        <td>deadline need to add</td> 
+                        <td>{volunteer.deadline}</td> 
                         <td className="flex">
                             
                             <button onClick={()=>handleVolunteerCancel(volunteer._id)}  className="btn">Cancel</button>

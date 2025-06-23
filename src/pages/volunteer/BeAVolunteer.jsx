@@ -2,10 +2,16 @@ import { useLoaderData } from 'react-router';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 import useAuth from '../../hooks/useAuth';
+import "react-datepicker/dist/react-datepicker.css";
+import { useState } from 'react';
+import DatePicker from 'react-datepicker';
+
 
 const BeAVolunteer = () => {
-
+     const [startDate, setStartDate] = useState(new Date());
+    
     const{user}=useAuth()
+
 
    
     
@@ -13,7 +19,7 @@ const BeAVolunteer = () => {
 
     const postData=useLoaderData()
     console.log(postData);
-    const{category,description,location, organizerEmail, organizerName, thumbnail,title,volunteernumber,  _id  }=postData
+    const{category,description,location, organizerEmail, organizerName, deadline, thumbnail,title,volunteernumber,  _id  }=postData
     console.log(postData);
     
 
@@ -77,7 +83,16 @@ const BeAVolunteer = () => {
         <input readOnly defaultValue={volunteernumber} name="volunteernumber" type="number" placeholder="No Of Volunteer Needed"  className="border max-w-xs py-1 px-2 rounded-md"/>
 
         {/* deadline */}
-        <label htmlFor="">Deadline</label>
+        <label htmlFor="">Deadline</label>  
+        <input readOnly defaultValue={deadline} name="deadline"  type="text" className="border text-white max-w-xs py-1 px-2 rounded-md"/>
+
+
+
+
+         {/* <DatePicker  name="deadline" className="text-blue-400 border p-2 rounded-lg" selected={deadline} /> */}
+        
+
+
 
 
         <label className="">Organizer Name</label> 

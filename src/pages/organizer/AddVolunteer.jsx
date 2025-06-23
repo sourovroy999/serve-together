@@ -1,10 +1,13 @@
 import axios from "axios";
-// import { useState } from "react";
+import { useState } from "react";
 import DatePicker from "react-datepicker";
 import toast from "react-hot-toast";
+import "react-datepicker/dist/react-datepicker.css";
+import { subDays } from "date-fns";
+
 
 const AddVolunteer = () => {
-            //   const [startDate, setStartDate] = useState(new Date());
+              const [startDate, setStartDate] = useState(new Date());
 
 
     const handleAddVolunteer=async(e)=>{
@@ -68,6 +71,16 @@ const AddVolunteer = () => {
         <input name="volunteernumber" type="number" placeholder="No Of Volunteer Needed"  className="border max-w-xs py-1 px-2 rounded-md"/>
 
         {/* deadline */}
+        <label className="">Deadline</label> 
+
+        
+                     <DatePicker name="deadline" className="text-blue-400 border p-2 rounded-lg" 
+                     selected={startDate} 
+                     minDate={subDays(new Date(), 0)}
+                     onChange={(date)=> setStartDate(date)}/>
+        
+                
+        
         <div>
           
         </div>

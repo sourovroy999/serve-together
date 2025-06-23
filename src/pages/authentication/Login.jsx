@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../../Providers/AuthProvider';
 import toast from 'react-hot-toast';
+import axios from 'axios';
 
 const Login = () => {
 
@@ -51,7 +52,7 @@ const Login = () => {
             const result=await signInWithGoogle()
 
             //add this later
-             const {data}=await axios.post('https://localhost:8000/jwt', {
+             const {data}=await axios.post('http://localhost:8000/jwt', {
     email: result?.user?.email,
   } ,{
     withCredentials:true  // ei line na likhle cookie save hobe nah
@@ -60,11 +61,12 @@ toast.success('log in successfully')
 navigate(from, {replace:true})
 
         } catch (error) {
-            console.log(error);
+            // console.log(error);
             
         }
     }
 
+  
     return (
          <div className='flex my-12 justify-center items-center min-h-[calc(100vh-306px)]'>
       <div className='flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg  lg:max-w-4xl '>

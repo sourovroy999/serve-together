@@ -1,6 +1,15 @@
 import { Link } from 'react-router';
+import useAuth from '../hooks/useAuth';
+
 
 const Navbar = () => {
+   const {logOut}=useAuth()
+  const handleLogOut=()=>{
+      return logOut()
+      
+
+  }
+
     return (
         <div className="navbar flex justify-between bg-base-100 shadow-sm">
   <div className="">
@@ -14,10 +23,11 @@ const Navbar = () => {
 
   <div className="flex gap-2">
     {/* <input type="text" placeholder="Search" className="input input-bordered w-24 md:w-auto" /> */}
-
+<div className='flex flex-col md:flex-row'>
     <Link to={'/login'}  className='btn btn-sm '>Login</Link>
 
     <Link to={'/register'} className='btn btn-sm'>Register</Link>
+</div>
     <div className="dropdown dropdown-end">
       <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
         <div className="w-10 rounded-full">
@@ -38,6 +48,7 @@ const Navbar = () => {
         <li><Link to={'/add-volunteer-needed-post'}>Add Volunteer need Post
 </Link></li>
         <li><Link to={'/my-posts'}>Manage My Posts </Link></li>
+        <li className='btn' onClick={handleLogOut}>Log Out</li>
       </ul>
     </div>
   </div>

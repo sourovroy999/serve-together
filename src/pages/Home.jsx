@@ -1,29 +1,32 @@
-import { useState } from "react";
 import AllPosts from "../components/allcards/AllPosts";
 import Banner from "../components/banner/Banner";
 import VolunteerNow from "../components/home/VolunteerNow";
-import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+
+import imageone from '../assets/banners/volunteer-one.jpg'
 
 const Home = () => {
-              const [startDate, setStartDate] = useState(new Date());
 
     return (
-        <div>
+        <div className="">
             
 
             {/* banner section */}
 
            <Banner/>
 
-             <DatePicker className="text-blue-400 border p-2 rounded-lg" selected={startDate} onChange={(date)=> setStartDate(date)}/>
-
-        
-        <VolunteerNow/>
-
             {/* Volunteer needs now section */}
+            <div className="px-4">
+
+                <VolunteerNow/>
+            </div>
+
+                
 
 
-                <AllPosts/>
+
+
+                {/* <AllPosts/> */}
                 
 
 
