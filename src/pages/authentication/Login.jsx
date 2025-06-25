@@ -4,6 +4,8 @@ import { AuthContext } from '../../Providers/AuthProvider';
 import toast from 'react-hot-toast';
 import axios from 'axios';
 
+import logInBanner from '../../assets/logInImgOne.jpg'
+
 const Login = () => {
 
     const navigate=useNavigate()
@@ -69,11 +71,11 @@ navigate(from, {replace:true})
   
     return (
          <div className='flex my-12 justify-center items-center min-h-[calc(100vh-306px)]'>
-      <div className='flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg  lg:max-w-4xl '>
+      <div className='flex w-full max-w-sm mx-auto overflow-hidden  rounded-lg shadow-lg  lg:max-w-4xl '>
         <div
           className='hidden bg-cover bg-center lg:block lg:w-1/2'
           style={{
-            // backgroundImage: `url(${bgLogInImg})`,
+            backgroundImage: `url(${logInBanner})`,
           }}
         ></div>
 
@@ -142,7 +144,7 @@ navigate(from, {replace:true})
                 id='LoggingEmailAddress'
                 autoComplete='email'
                 name='email'
-                className='block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg    focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300'
+                className='block w-full px-4 py-2 text-gray-700   border rounded-lg    focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300'
                 type='email'
               />
             </div>
@@ -161,7 +163,7 @@ navigate(from, {replace:true})
                 id='loggingPassword'
                 autoComplete='current-password'
                 name='password'
-                className='block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg    focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300'
+                className='block w-full px-4 py-2 text-gray-700   border rounded-lg    focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300'
                 type='password'
               />
             </div>

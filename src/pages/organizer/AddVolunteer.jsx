@@ -40,7 +40,7 @@ const AddVolunteer = () => {
     }
 
     return (
-        <div className="pb-20">
+        <div className="pb-20 text-base-content">
             <p className="text-2xl text-center my-6">Add Organization Details for volunteers</p>
 
 
@@ -48,15 +48,15 @@ const AddVolunteer = () => {
         <form onSubmit={handleAddVolunteer} action="" className="flex justify-center flex-col gap-2">
           
                 <label className="">Thumbnail URL</label> 
-        <input name="thumbnail" type="text" placeholder="Thumbnail URL"  className="border text-black  max-w-xs py-1 px-2 rounded-md"/>
+        < input required name="thumbnail" type="text" placeholder="Thumbnail URL"  className="border    max-w-xs py-1 px-2 rounded-md"/>
 
                 <label className="">Post Title</label> 
-        <input name="title" type="text" placeholder="Post Title"  className="border text-black max-w-xs py-1 px-2 rounded-md"/>
+        < input required name="title" type="text" placeholder="Post Title"  className="border   max-w-xs py-1 px-2 rounded-md"/>
 
                 <label className="">Description</label> 
-          <textarea 
+          <textarea required 
               className='block w-full px-4 py-2 mt-2 
-               border border-gray-200 text-black rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring'
+               border border-gray-200   rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring'
               name='description'
               id='description'
               cols='30'
@@ -66,7 +66,7 @@ const AddVolunteer = () => {
 
                 <label className="">Category</label> 
 
-        <select name="category" id="" className="border text-black py-1 rounded-md bg-white">
+        <select name="category" id="" className="border   py-1 rounded-md ">
             <option value="Healthcare">Healthcare</option>
             <option value="Education">Education</option>
             <option value="Social Service">Social Service</option>
@@ -74,10 +74,10 @@ const AddVolunteer = () => {
         </select>
 
         <label className="">Location</label> 
-        <input name="location" type="text" placeholder="Location"  className="border text-black max-w-xs py-1 px-2 rounded-md"/>
+        < input required name="location" type="text" placeholder="Location"  className="border   max-w-xs py-1 px-2 rounded-md"/>
 
         <label className="">No Of Volunteer Needed</label> 
-        <input name="volunteernumber" type="number" placeholder="No Of Volunteer Needed"  className="border text-black max-w-xs py-1 px-2 rounded-md"/>
+        < input required name="volunteernumber" type="number" placeholder="No Of Volunteer Needed"  className="border   max-w-xs py-1 px-2 rounded-md"/>
 
         {/* deadline */}
         <label className="">Deadline</label> 
@@ -97,10 +97,10 @@ const AddVolunteer = () => {
 
 
         <label className="">Organizer Name</label> 
-        <input readOnly name="organizerName" type="text" defaultValue={user?.displayName}  className="border text-black max-w-xs py-1 px-2 rounded-md"/>
+        < input required readOnly name="organizerName" type="text" defaultValue={user?.displayName}  className="border   max-w-xs py-1 px-2 rounded-md"/>
 
         <label className="">Organizer Email</label> 
-        <input readOnly name="organizerEmail" type="text" defaultValue={user?.email}  className="border text-black max-w-xs py-1 px-2 rounded-md"/>
+        < input required readOnly name="organizerEmail" type="text" defaultValue={user?.email}  className="border   max-w-xs py-1 px-2 rounded-md"/>
 
         <button className="btn btn-info mt-4">Post</button>
 

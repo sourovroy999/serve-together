@@ -13,9 +13,9 @@ const PostDetails = () => {
     
     
     return (
-        // <div className="mt-16">
-        //     <div className="card mx-auto border rounded-md max-w-3xl py-8">
-        //         <div className="text-center">
+        // <div classNameName="mt-16">
+        //     <div classNameName="card mx-auto border rounded-md max-w-3xl py-8">
+        //         <div classNameName="text-center">
         //         thumbnail:{thumbnail} <br />
         //         title:{title} <br />
         //         category: {category} <br />
@@ -27,7 +27,7 @@ const PostDetails = () => {
         //         organizerEmail:{organizerEmail}
         //         </div>
 
-        //         <Link to={`/be-a-volunteer/${_id}`} className="btn my-4 mx-auto max-w-xs">Be a Volunteer</Link>
+        //         <Link to={`/be-a-volunteer/${_id}`} classNameName="btn my-4 mx-auto max-w-xs">Be a Volunteer</Link>
 
 
 
@@ -39,19 +39,19 @@ const PostDetails = () => {
             
         // </div>
 
-           <div class=" md:mt-10 max-w-2xl mx-auto  bg-white border-b border-gray-200 border rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+           <div className=" md:mt-10 max-w-2xl mx-auto    rounded-lg shadow-sm  ">
             <a href="#">
-                <img class="rounded-t-lg" src={imageone} alt="" />
+                <img className="rounded-t-lg" src={imageone} alt="" />
             </a>
         
-            <div class="p-5">
+            <div className="p-5">
                 
         
-                <div className="badge badge-info">{category}</div>
-                {/* <div className=' font-normal text-gray-700 dark:text-gray-400'>Deadline:{newDeadline}</div> */}
+                <div className="badge text-white badge-info">{category}</div>
+                {/* <div classNameName=' font-normal text-gray-700 dark:text-gray-400'>Deadline:{newDeadline}</div> */}
               
                 <a href="#">
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{title}</h5>
+                    <h5 className="mb-2 text-2xl font-bold tracking-tight text-base-content ">{title}</h5>
                 </a>
                 <div>
                     {description}
@@ -59,98 +59,98 @@ const PostDetails = () => {
 
                 {/* table  */}
 
-<div class="relative overflow-x-auto">
-    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-        {/* <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+<div className="relative text-base-content overflow-x-auto">
+    <table className="w-full text-sm text-left rtl:text-right ">
+        {/* <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
-                <th scope="col" class="px-3 md:px-6 py-3">
+                <th scope="col" className="px-3 md:px-6 py-3">
                     Product name
                 </th>
-                <th scope="col" class="px-3 md:px-6 py-3">
+                <th scope="col" className="px-3 md:px-6 py-3">
                     Color
                 </th>
-                <th scope="col" class="px-3 md:px-6 py-3">
+                <th scope="col" className="px-3 md:px-6 py-3">
                     Category
                 </th>
-                <th scope="col" class="px-3 md:px-6 py-3">
+                <th scope="col" className="px-3 md:px-6 py-3">
                     Price
                 </th>
             </tr>
         </thead> */}
 
-        <tbody>
-            <tr class="bg-white border-b border-gray-200  dark:bg-gray-800 dark:border-gray-700 ">
-                <th scope="row" class="px-3 md:px-6 py-4  font-medium text-gray-900 whitespace-nowrap dark:text-white">
+        <tbody className="text-base-content">
+            <tr className=" border-b border-b-base-300  ">
+                <th scope="row" className="px-3 md:px-6 py-4  font-medium  whitespace-nowrap ">
                     Title
                 </th>
-                <td class="px-3  md:px-6 py-4">
+                <td className="px-3  md:px-6 py-4">
                     {title}
                 </td>
               
             </tr>
-              <tr class="bg-white border-b border-gray-200 dark:bg-gray-800  dark:border-gray-700">
-                <th scope="row" class="px-3 md:px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+              <tr className=" border-b border-b-base-300   ">
+                <th scope="row" className="px-3 md:px-6 py-4 font-medium text-base-content whitespace-nowrap ">
                    Description
                 </th>
-                <td class="px-3 md:px-6 py-4">
+                <td className="px-3 text-base-content md:px-6 py-4">
                     {description}
                 </td>
                 
             </tr>
 
-              <tr class="bg-white border-b border-gray-200 dark:bg-gray-800  dark:border-gray-700">
-                <th scope="row" class="px-3 md:px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+              <tr className=" border-b border-base-300   ">
+                <th scope="row" className="px-3 md:px-6 py-4 font-medium text-base-content whitespace-nowrap ">
                    Location
                 </th>
-                <td class="px-3 md:px-6 py-4">
+                <td className="px-3 md:px-6 py-4">
                     {location}
                 </td>
                 
             </tr>
             
-              <tr class="bg-white border-b border-gray-200 dark:bg-gray-800  dark:border-gray-700">
-                <th scope="row" class="px-3 md:px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+              <tr className=" border-b border-b-base-300  ">
+                <th scope="row" className="px-3 md:px-6 py-4 font-medium text-base-content whitespace-nowrap ">
                    volunteer needed: 
                 </th>
-                <td class="px-3 md:px-6 py-4">
+                <td className="px-3 md:px-6 py-4">
                    {volunteernumber}
                 </td>
                 
             </tr>
 
 
-            <tr class="bg-white border-b border-gray-200  dark:bg-gray-800 dark:border-gray-700">
-                <th scope="row" class="px-3 md:px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+            <tr className=" border-b border-b-base-300  ">
+                <th scope="row" className="px-3 md:px-6 py-4 font-medium text-base-content whitespace-nowrap ">
                     Category
                 </th>
-                <td class="px-3 md:px-6 py-4">
+                <td className="px-3 md:px-6 py-4">
                     {category}
                 </td>
                 
             </tr>
-            <tr class="bg-white border-b border-gray-200 dark:bg-gray-800  dark:border-gray-700">
-                <th scope="row" class="px-3 md:px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+            <tr className=" border-b border-b-base-300  ">
+                <th scope="row" className="px-3 md:px-6 py-4 font-medium text-base-content whitespace-nowrap ">
                    Deadline
                 </th>
-                <td class="px-3 md:px-6 py-4">
+                <td className="px-3 md:px-6 py-4">
                     {newDeadline}
                 </td>
                 
             </tr>
-            <tr class="bg-white border-b border-gray-200 dark:bg-gray-800  dark:border-gray-700">
-                <th scope="row" class="px-3 md:px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+            <tr className=" border-b border-b-base-300  ">
+                <th scope="row" className="px-3 md:px-6 py-4 font-medium text-base-content whitespace-nowrap ">
                    Organizer Name
                 </th>
-                <td class="px-3 md:px-6 py-4">
+                <td className="px-3 md:px-6 py-4">
                     {organizerName}
                 </td>
                 
             </tr>
-            <tr class="bg-white border-b border-gray-200 dark:bg-gray-800  dark:border-gray-700">
-                <th scope="row" class="px-3 md:px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+            <tr className=" border-b border-b-base-300  ">
+                <th scope="row" className="px-3 md:px-6 py-4 font-medium text-base-content whitespace-nowrap ">
                    Organizer Email
                 </th>
-                <td class="px-3 md:px-6 py-4">
+                <td className="px-3 md:px-6 py-4">
                     {organizerEmail}
                 </td>
                 
@@ -161,8 +161,8 @@ const PostDetails = () => {
 
         </tbody>
     </table>
-    <div className="flex justify-center mt-3">
-             <Link to={`/be-a-volunteer/${_id}`} className="btn btn-wide bg-blue-600  my-4 ">Be a Volunteer</Link>
+    <div className="flex justify-center  mt-3">
+             <Link to={`/be-a-volunteer/${_id}`} className="btn btn-wide bg-blue-600 text-white my-4 ">Be a Volunteer</Link>
              </div>
 </div>
 

@@ -68,6 +68,8 @@ const AuthProvider = ({children}) => {
         }
     }, [])
 
+    const[theme, setTheme]=useState(()=> localStorage.getItem('theme') || 'light')
+
 
  
 
@@ -81,7 +83,9 @@ const AuthProvider = ({children}) => {
         updateUserProfile,
         
         signInWithGoogle,
-        logOut
+        logOut,
+        theme,
+        setTheme
 
     }
 

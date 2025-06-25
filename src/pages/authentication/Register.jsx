@@ -3,6 +3,7 @@ import { AuthContext } from '../../Providers/AuthProvider';
 import toast from 'react-hot-toast';
 import { Link, Navigate, useLocation, useNavigate } from 'react-router';
 import axios from 'axios';
+import registerBanner from '../../assets/registrationImg.jpg'
 
 const Register = () => {
  
@@ -96,7 +97,7 @@ const Register = () => {
 
     return (
        <div className='flex my-12 justify-center items-center min-h-[calc(100vh-306px)]'>
-      <div className='flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg  lg:max-w-4xl '>
+      <div className='flex w-full max-w-sm mx-auto overflow-hidden  rounded-lg shadow-lg  lg:max-w-4xl '>
         <div className='w-full px-6 py-8 md:px-8 lg:w-1/2'>
           <div className='flex justify-center mx-auto'>
             <img
@@ -158,7 +159,7 @@ const Register = () => {
                 id='name'
                 autoComplete='name'
                 name='name'
-                className='block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg    focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300'
+                className='block w-full px-4 py-2 text-gray-700   border rounded-lg    focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300'
                 type='text'
               />
             </div>
@@ -173,7 +174,7 @@ const Register = () => {
                 id='photo'
                 autoComplete='photo'
                 name='photo'
-                className='block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg    focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300'
+                className='block w-full px-4 py-2 text-gray-700   border rounded-lg    focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300'
                 type='text'
               />
             </div>
@@ -188,7 +189,7 @@ const Register = () => {
                 id='LoggingEmailAddress'
                 autoComplete='email'
                 name='email'
-                className='block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg    focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300'
+                className='block w-full px-4 py-2 text-gray-700   border rounded-lg    focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300'
                 type='email'
               />
             </div>
@@ -207,7 +208,7 @@ const Register = () => {
                 id='loggingPassword'
                 autoComplete='current-password'
                 name='password'
-                className='block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg    focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300'
+                className='block w-full px-4 py-2 text-gray-700   border rounded-lg    focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300'
                 type='password'
               />
             </div>
@@ -236,9 +237,9 @@ const Register = () => {
         </div>
         <div
           className='hidden bg-cover bg-center lg:block lg:w-1/2'
-        //   style={{
-        //     backgroundImage: `url(${bgRegisterImg})`,
-        //   }}
+          style={{
+            backgroundImage: `url(${registerBanner})`,
+          }}
         ></div>
       </div>
     </div>
