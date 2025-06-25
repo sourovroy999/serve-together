@@ -29,7 +29,12 @@ const BeAVolunteer = () => {
         const form=e.target;
         const formData=new FormData(form)
         const newVounteerEntries= Object.fromEntries(formData.entries())
+        newVounteerEntries.postId= _id
         console.log(newVounteerEntries);
+        if(volunteernumber<1){
+                toast.error('volunteer filled')
+                return
+        }
 
          try {
         const{data}=await axios.post('http://localhost:8000/volunteers', newVounteerEntries)
@@ -88,6 +93,9 @@ const BeAVolunteer = () => {
         {/* deadline */}
         <label htmlFor="">Deadline</label>  
         <input readOnly defaultValue={deadline} name="deadline"  type="text" className="border  text-black max-w-xs py-1 px-2 rounded-md"/>
+        {/* post id */}
+       
+
 
 
 

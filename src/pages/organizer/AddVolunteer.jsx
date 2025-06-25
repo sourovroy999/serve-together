@@ -6,9 +6,12 @@ import "react-datepicker/dist/react-datepicker.css";
 import { subDays } from "date-fns";
 import UseAuth from "../../hooks/UseAuth";
 import { useNavigate } from "react-router";
+import UseAxiosSecure from "../../hooks/UseAxiosSecure";
 
 
 const AddVolunteer = () => {
+    const axiosSecure=UseAxiosSecure()
+
 
     const {user}=UseAuth()
     const navigate=useNavigate()
@@ -25,7 +28,7 @@ const AddVolunteer = () => {
         console.log(newVolunteerEntries);
         
         try {
-            const {data}=await axios.post('http://localhost:8000/organizations', newVolunteerEntries)
+            const {data}=await axiosSecure.post('http://localhost:8000/organizations', newVolunteerEntries)
             navigate('/my-posts')
             toast.success('Your Organizer data added successfully')
         } catch (err) {

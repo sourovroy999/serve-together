@@ -56,7 +56,7 @@ if (result.isConfirmed) {
     try {
         const{data}=await axiosSecure.delete(`http://localhost:8000/delete-post/${id}`) 
           const remaining=posts.filter(post=> post._id !==id)
-         setVolunteers(remaining)
+         setPosts(remaining)
          getData()
 
           Swal.fire({
@@ -177,6 +177,9 @@ if (result.isConfirmed) {
             </div>
               </div> 
 
+            
+
+         
 
 
 
@@ -207,7 +210,7 @@ if (result.isConfirmed) {
                   {
                     volunteers.map((volunteer,index)=> <tr key={volunteer._id || index}>
                         <th>{index+1}</th>
-                        <td>{volunteer.Volunteer_Email}</td>
+                        <td>{volunteer.organizerEmail}</td>
                         <td>{volunteer.title}</td>
                         <td>{volunteer.location}</td>
                         <td>{volunteer.deadline}</td> 
