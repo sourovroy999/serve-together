@@ -4,6 +4,7 @@ import VolunteerNow from "../components/home/VolunteerNow";
 import "react-datepicker/dist/react-datepicker.css";
 
 import imageone from '../assets/banners/volunteer-one.jpg'
+import CountSystem from "../components/home/CountSystem";
 
 const Home = () => {
 
@@ -15,11 +16,21 @@ const Home = () => {
 
            <Banner/>
 
+
             {/* Volunteer needs now section */}
             <div className="px-4">
 
                 <VolunteerNow/>
             </div>
+           <CountSystem/>
+
+
+            {/* count section */}
+
+
+
+
+
 
                 
 

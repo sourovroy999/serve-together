@@ -39,10 +39,10 @@ const SInglePost = ({post}) => {
     return (
        
 
-        <div className="text-base-content rounded-lg shadow-sm ">
-    <a href="#">
+        <Link to={`/details/${_id}`} className="text-base-content rounded-lg shadow-sm transform transition-all duration-300 hover:scale-101">
+    
         <img className="rounded-t-lg" src={imageone} alt="" />
-    </a>
+    
 
     <div className="p-5">
         <div className='flex flex-col md:flex-row justify-between'>
@@ -62,7 +62,7 @@ const SInglePost = ({post}) => {
 
 
         {/* details btn */}
-        <Link to={`/details/${_id}`} href="#" className="inline-flex items-center text-white  px-3 py-2 text-sm font-medium text-center  bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+        <Link to={`/details/${_id}`} className="inline-flex items-center text-white  px-3 py-2 text-sm font-medium text-center  bg-blue-400 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
             Details
              
             <p className='mt-1'>
@@ -71,7 +71,7 @@ const SInglePost = ({post}) => {
             </p>
         </Link>
     </div>
-</div>
+</Link>
 
 
 

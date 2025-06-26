@@ -40,13 +40,13 @@ const Navbar = () => {
   // }
 
     return (
-        <div className="navbar flex text-base-content justify-between bg-base-100 shadow-sm ">
+        <div className="navbar  md:px-20 flex text-base-content justify-between bg-base-200 shadow-sm ">
   <div className="">
     <Link to={'/'} className="font-semibold text-xl">ServeTogether</Link>
   </div>
 
 <div className=''>
-  <Link to={'/all-posts'} className='font-semibold border-0  rounded py-1 px-2 hover:cursor'>All Posts</Link>
+  <Link to={'/all-posts'} className='font-mono border-0  rounded py-1 px-2 hover:cursor hover:underline hover:text-blue-400'>All Posts</Link>
   
 </div>
 
@@ -85,17 +85,12 @@ const Navbar = () => {
       </div>
       <ul
         tabIndex={0}
-        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-        <li>
-          <a className="justify-between">
-            Profile
-            <span className="badge">New</span>
-          </a>
-        </li>
+        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-6 shadow">
+        
         <li><Link to={'/add-volunteer-needed-post'}>Add Volunteer need Post
 </Link></li>
-        <li><Link to={'/my-posts'}>Manage My Posts </Link></li>
-        <li className='btn' onClick={handleLogOut}>Log Out</li>
+        <li className='my-2'><Link to={'/my-posts'}>Manage My Posts </Link></li>
+        <li className='btn mt-3' onClick={handleLogOut}>Log Out</li>
       </ul>
     </div>
     }
