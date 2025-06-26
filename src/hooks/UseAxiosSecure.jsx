@@ -3,6 +3,7 @@ import axios from "axios";
 import UseAuth from "./UseAuth";
 import { useNavigate } from "react-router";
 import { useEffect } from "react";
+import toast from "react-hot-toast";
 
 const axiosSecure = axios.create({
     baseURL: 'http://localhost:8000',
@@ -22,6 +23,8 @@ const UseAxiosSecure = () => {
             async error => {
                 if ((error.response?.status === 401 || error.response?.status === 403) && !isLoggingOut) {
                     isLoggingOut = true;
+
+                   
                     
                     try {
                         await logOut();

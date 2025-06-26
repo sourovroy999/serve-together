@@ -100,8 +100,10 @@ const Navbar = () => {
     </div>
     }
 
-  {  !user && <div className="flex gap-2">
-    <div className='flex flex-col md:flex-row'>
+   
+
+  {  !user && <div  className="flex gap-2">
+    <div className={`flex flex-col md:flex-row `}>
 
     <Link to={'/login'}  className='btn btn-sm '>Login</Link>
 
