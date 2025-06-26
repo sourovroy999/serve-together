@@ -124,6 +124,7 @@ navigate(from, {replace:true})
             //   src={mylogo}
               alt=''
             />
+            <div className='font-bold text-xl '>Serve<span className='text-orange-400'>Together</span></div>
           </div>
 
           <p className={`mt-3 text-xl text-center `}>

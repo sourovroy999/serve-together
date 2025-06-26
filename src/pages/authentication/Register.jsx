@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../Providers/AuthProvider';
 import toast from 'react-hot-toast';
 import { Link, Navigate, useLocation, useNavigate } from 'react-router';
@@ -11,6 +11,8 @@ const Register = () => {
     
     const navigate=useNavigate()
     const location=useLocation()
+
+    const[passwordError, SetPasswordError]=useState('')
 
     
 
@@ -51,6 +53,10 @@ const Register = () => {
     }
     }
 
+    const handlePassChng=()=>{
+      SetPasswordError('')
+    }
+
       // if(user || loading) return
 
 
@@ -63,7 +69,20 @@ const Register = () => {
     const email=form.email.value
     const name=form.name.value
     const photo=form.photo.value
-    const pass=form.password.value  
+
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+  const pass=form.password.value  
+
+  const isValid=passwordRegex.test(pass);
+  if (!isValid) {
+      const errMessage = "Password must have:\n• At least One uppercase letter\n• At least One lowercase letter\n• Minimum 6 characters";
+
+    SetPasswordError(errMessage)
+    return  toast.error(errMessage);
+    
+  }
+
+
     console.log(email, name, photo, pass);
 
     try {
@@ -105,6 +124,7 @@ const Register = () => {
             //   src={myLogo}
               alt=''
             />
+            <div className='font-bold text-xl '>Serve<span className='text-orange-400'>Together</span></div>
           </div>
 
           <p className='mt-3 text-xl text-center  '>
@@ -133,7 +153,7 @@ const Register = () => {
               </svg>
             </div>
 
-            <span className='w-5/6 px-4 py-3 font-bold text-center'>
+            <span className='w-5/6 px-4 py-3 font-bold text-center hover:text-black'>
               Sign in with Google
             </span>
           </div>
@@ -155,7 +175,7 @@ const Register = () => {
               >
                 Username
               </label>
-              <input
+              <input autoFocus required
                 id='name'
                 autoComplete='name'
                 name='name'
@@ -170,7 +190,7 @@ const Register = () => {
               >
                 Photo URL
               </label>
-              <input
+              <input required
                 id='photo'
                 autoComplete='photo'
                 name='photo'
@@ -185,7 +205,7 @@ const Register = () => {
               >
                 Email Address
               </label>
-              <input
+              <input required
                 id='LoggingEmailAddress'
                 autoComplete='email'
                 name='email'
@@ -204,13 +224,21 @@ const Register = () => {
                 </label>
               </div>
 
-              <input
+              <input onChange={handlePassChng}  required
                 id='loggingPassword'
                 autoComplete='current-password'
                 name='password'
                 className='block w-full px-4 py-2    border rounded-lg    focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300'
                 type='password'
               />
+           <div className='text-red-500 text-xs mt-2'>
+              {passwordError.split('\n').map((line, index) => (
+             <span key={index}>
+               {line}
+                 <br />
+                 </span>
+             ))}
+           </div>
             </div>
             <div className='mt-6'>
               <button

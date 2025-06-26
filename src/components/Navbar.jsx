@@ -78,7 +78,7 @@ const Navbar = () => {
         <div className="w-10 rounded-full">
           <img
           referrerPolicy='no-referrer'
-            alt='user'
+            alt={user?.displayName}
             src={user?.photoURL} />  
             {/* user ternary for check user , unless the page breaks */}
         </div>
