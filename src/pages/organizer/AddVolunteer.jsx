@@ -28,7 +28,7 @@ const AddVolunteer = () => {
         console.log(newVolunteerEntries);
         
         try {
-            const {data}=await axiosSecure.post('http://localhost:8000/organizations', newVolunteerEntries)
+            const {data}=await axiosSecure.post('/organizations', newVolunteerEntries)
             navigate('/my-posts')
             toast.success('Your Organizer data added successfully')
         } catch (err) {

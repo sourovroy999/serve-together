@@ -5,7 +5,7 @@ import imageone from '../../assets/banners/volunteer-one.jpg'
 const PostDetails = () => {
 
     const postData=useLoaderData()
-    console.log(postData);
+    // console.log(postData);
     const{category,description,location, organizerEmail, organizerName,deadline, thumbnail,title,volunteernumber,  _id  }=postData
 
     const newDeadline=UseDateFormattery(deadline)

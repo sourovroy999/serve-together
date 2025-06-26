@@ -6,7 +6,7 @@ import UseAxiosSecure from '../../hooks/UseAxiosSecure';
 
 const UpdatePost = () => {
 
-    const{user}=UseAuth()  //eta use korte hbe **
+    const{user, logOut}=UseAuth()  //eta use korte hbe **
     const axiosSecure=UseAxiosSecure()
 
   
@@ -22,11 +22,26 @@ const UpdatePost = () => {
         
         e.preventDefault()
         const form=e.target;
+        const email=e.target.organizerEmail.value;
+        console.log(email);
+        
         const formData=new FormData(form)
         const updatedVounteerEntries= Object.fromEntries(formData.entries())
         console.log(updatedVounteerEntries);
 
+        if(user.email !==email){
+                console.log('are you hackerrr????');
+                toast.error('Actions Not Permitted')
+                logOut()
+
+                return 
+                
+                
+            }    
+
          try {
+            
+
         const{data}=await axiosSecure.put(`http://localhost:8000/update-post/${_id}`, updatedVounteerEntries)
                 toast.success('Updated successfully')
         } catch (err) {
