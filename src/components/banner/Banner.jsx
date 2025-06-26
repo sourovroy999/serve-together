@@ -15,7 +15,7 @@ import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 
 import bannerOne from '../../assets/banners/volunteer-one.jpg'
 import bannerTwo from '../../assets/banners/volunteer-two.jpg'
-// import bannerThree from '../../assets/banners/volunteer-three.jpg'
+import bannerThree from '../../assets/banners/bannerImageThree.jpg'
 // import bannerFour from '../../assets/banners/volunteer-four.jpg'
 
 const Banner = () => {
@@ -70,8 +70,8 @@ const Banner = () => {
                  
                  </SwiperSlide>
 
-                 {/* <SwiperSlide>
-                  <img src={''} alt="" />
+                 <SwiperSlide>
+                  <img src={bannerThree} alt="" />
                     <div className='absolute inset-0 bg-[#00000097]'></div>
                   <div className="absolute inset-0 flex items-center mx-2 md:ml-32  ">
 
@@ -84,9 +84,8 @@ const Banner = () => {
                   </div>
         
                   </div>
-                  </SwiperSlide> */}
-        {/* <SwiperSlide>{bannerTwo}</SwiperSlide>
-        <SwiperSlide>{bannerThree}</SwiperSlide> */}
+                  </SwiperSlide>
+
 
             </Swiper>
             

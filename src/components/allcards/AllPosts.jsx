@@ -48,7 +48,7 @@ const AllPosts = () => {
                 onChange={(e)=>setSearchText(e.target.value)}
                 name="search"
                 value={searchText}
-                placeholder="enter post title"
+                placeholder="Enter Post Title"
                 aria-label="enter post title"
                 />
 
