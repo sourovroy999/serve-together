@@ -1,11 +1,9 @@
 import { Link, useLoaderData } from "react-router";
 import UseDateFormattery from "../../hooks/UseDateFormattery";
-import imageone from '../../assets/banners/volunteer-one.jpg'
 
 const PostDetails = () => {
 
     const postData=useLoaderData()
-    // console.log(postData);
     const{category,description,location, organizerEmail, organizerName,deadline, thumbnail,title,volunteernumber,  _id  }=postData
 
     const newDeadline=UseDateFormattery(deadline)
@@ -13,42 +11,20 @@ const PostDetails = () => {
     
     
     return (
-        // <div classNameName="mt-16">
-        //     <div classNameName="card mx-auto border rounded-md max-w-3xl py-8">
-        //         <div classNameName="text-center">
-        //         thumbnail:{thumbnail} <br />
-        //         title:{title} <br />
-        //         category: {category} <br />
-        //         location:{location} <br />
-        //         description:{description} <br />
-        //         Deadline:{newDeadline} <br />
-        //         No. of volunteer needed: {volunteernumber} <br />
-        //         organizerName:{organizerName} <br />
-        //         organizerEmail:{organizerEmail}
-        //         </div>
+        
 
-        //         <Link to={`/be-a-volunteer/${_id}`} classNameName="btn my-4 mx-auto max-w-xs">Be a Volunteer</Link>
+           <div className="px-3 md:my-10 max-w-2xl mx-auto    rounded-lg shadow-sm  ">
+            <div className="h-[300px] md:h-[380px] w-full overflow-hidden rounded-t-lg">
 
 
-
-
-
-
-        //     </div>
-             
-            
-        // </div>
-
-           <div className=" md:my-10 max-w-2xl mx-auto    rounded-lg shadow-sm  ">
-            <a href="#">
-                <img className="rounded-t-lg" src={imageone} alt="" />
-            </a>
+                <img className="h-full w-full object-cover"  src={thumbnail} alt="" />
+            </div>
         
             <div className="p-5">
                 
         
                 <div className="badge text-white badge-info">{category}</div>
-                {/* <div classNameName=' font-normal text-gray-700 dark:text-gray-400'>Deadline:{newDeadline}</div> */}
+                
               
                 <a href="#">
                     <h5 className="mb-2 text-2xl font-bold tracking-tight text-base-content ">{title}</h5>
@@ -61,23 +37,7 @@ const PostDetails = () => {
 
 <div className="relative text-base-content overflow-x-auto">
     <table className="w-full text-sm text-left rtl:text-right ">
-        {/* <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-            <tr>
-                <th scope="col" className="px-3 md:px-6 py-3">
-                    Product name
-                </th>
-                <th scope="col" className="px-3 md:px-6 py-3">
-                    Color
-                </th>
-                <th scope="col" className="px-3 md:px-6 py-3">
-                    Category
-                </th>
-                <th scope="col" className="px-3 md:px-6 py-3">
-                    Price
-                </th>
-            </tr>
-        </thead> */}
-
+       
         <tbody className="text-base-content">
             <tr className=" border-b border-b-base-300  ">
                 <th scope="row" className="px-3 md:px-6 py-4  font-medium  whitespace-nowrap ">

@@ -25,7 +25,7 @@ const VolunteerNow = () => {
         <div>
             <p className='text-center font-semibold text-3xl my-10'> Urgent Posts {posts.length}</p>
 
-             <div className="grid px-24 md:grid-cols-2 lg:grid-cols-3 gap-7">
+             <div className="grid md:px-24 md:grid-cols-2 lg:grid-cols-3 gap-7">
                 {
                     posts.map(post=> <SInglePost key={post._id} post={post}></SInglePost>)
                 }
