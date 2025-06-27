@@ -14,6 +14,8 @@ const AddVolunteer = () => {
   const navigate = useNavigate();
   const [startDate, setStartDate] = useState(new Date());
 
+  
+
   const handleAddVolunteer = async (e) => {
     e.preventDefault();
     const form = e.target;
@@ -179,7 +181,7 @@ const AddVolunteer = () => {
                 type="text"
                 id="organizerEmail"
                 defaultValue={user?.email || "N/A"}
-                className="input bg-white input-bordered w-full bg-gray-100 cursor-not-allowed px-5 py-3 rounded-lg"
+                className="input bg-white input-bordered w-full  cursor-not-allowed px-5 py-3 rounded-lg"
               />
             </div>
           </div>

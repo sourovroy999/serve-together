@@ -6,6 +6,22 @@ Frontend: https://serve-together-auth.web.app/
 
 Backend API: https://servetogether-server.vercel.app/
 
+## Test Account Credentials
+
+You can use the following dummy account to log in and explore the app:
+
+- Email: testuser@gmail.com
+- Password: Test1234
+
+## 🚀 Purpose
+
+ServeTogether is a platform that connects organizations offering volunteer opportunities with individuals who want to give back to their communities. It simplifies the process of posting, discovering, and applying for volunteer work.
+
+## 💡 Problem It Solves
+
+Many people want to volunteer but don’t know where to start. ServeTogether solves this by providing a centralized platform for posting and finding volunteer opportunities, making community service more accessible.
+
+
 🚀 Features
 ✅ Post volunteering opportunities
 
@@ -60,4 +76,6 @@ React CountUp
 React Intersection Observer
 
 Swiper
+
+## 🖼️ Screenshots
 

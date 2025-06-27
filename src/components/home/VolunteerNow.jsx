@@ -1,13 +1,14 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import UrgentPost from './UrgentPost';
+import  { useEffect, useState } from 'react';
 import SInglePost from '../allcards/SInglePost';
 import { Link } from 'react-router';
+import UseAuth from '../../hooks/UseAuth';
 
 const VolunteerNow = () => {
 
-      const[posts, setPosts]=useState([])
-        // console.log(posts);
+      const[posts, setPosts]=useState([]);
+
+      const{user}=UseAuth()
     
         useEffect(()=>{
             getData()
@@ -15,7 +16,6 @@ const VolunteerNow = () => {
     
         const getData=async()=>{
             const {data}=await axios(`https://servetogether-server.vercel.app/urgentPosts`, ) //get operations
-            // console.log(data);
             setPosts(data)
             
         }
@@ -24,6 +24,7 @@ const VolunteerNow = () => {
     return (
         <div>
             <p className='text-center font-semibold text-3xl my-10'> Urgent Posts {posts.length}</p>
+            {/* {user.email} */}
 
              <div className="grid md:px-24 md:grid-cols-2 lg:grid-cols-3 gap-7">
                 {

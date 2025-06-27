@@ -1,12 +1,24 @@
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import UseAuth from '../hooks/UseAuth';
 import { useEffect } from 'react';
 
 
 const Navbar = () => {
    const {logOut,loading, theme, setTheme, user}=UseAuth()
-  const handleLogOut=()=>{
-      return logOut()
+
+   const navigate=useNavigate()
+
+  const handleLogOut=async()=>{
+    try {
+      await logOut()
+       navigate('/login')
+
+      
+    } catch (error) {
+        console.error('Logout failed:', error);
+      
+    }
+       
       
 
   }
