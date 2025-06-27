@@ -11,7 +11,7 @@ const AllPosts = () => {
 
     useEffect(()=>{
            const getData=async()=>{
-        const {data}=await axios(`http://localhost:8000/organizationsPosts?search=${search}`, ) //get operations
+        const {data}=await axios(`https://servetogether-server.vercel.app/organizationsPosts?search=${search}`, ) //get operations
         // console.log(data);
         setPosts(data)
         

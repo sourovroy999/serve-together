@@ -42,7 +42,7 @@ const UpdatePost = () => {
          try {
             
 
-        const{data}=await axiosSecure.put(`http://localhost:8000/update-post/${_id}`, updatedVounteerEntries)
+        const{data}=await axiosSecure.put(`/update-post/${_id}`, updatedVounteerEntries)
                 toast.success('Updated successfully')
         } catch (err) {
         console.log(err);

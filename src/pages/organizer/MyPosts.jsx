@@ -14,7 +14,7 @@ const MyPosts = () => {
 
     const[posts, setPosts]=useState([])
     const[volunteers, setVolunteers]=useState([])
-    // console.log(posts);
+    console.log(posts);
     console.log(volunteers);
     
 
@@ -33,7 +33,7 @@ const MyPosts = () => {
     const getData=async()=>{
         // const email='sourov@gmail.com'
 
-        const {data}=await axiosSecure(`http://localhost:8000/organization/${user.email}`)
+        const {data}=await axiosSecure(`/organization/${user.email}`)
         // console.log(data);
         setPosts(data)
         
@@ -55,7 +55,7 @@ const MyPosts = () => {
 if (result.isConfirmed) {
 
     try {
-        const{data}=await axiosSecure.delete(`http://localhost:8000/delete-post/${id}`) 
+        const{data}=await axiosSecure.delete(`/delete-post/${id}`) 
           const remaining=posts.filter(post=> post._id !==id)
          setPosts(remaining)
          getData()
@@ -87,7 +87,7 @@ if (result.isConfirmed) {
 // volunteers request related
     const getVolunteersData=async()=>{
         
-        const {data}=await axiosSecure(`http://localhost:8000/volunteer/${user?.email}`)
+        const {data}=await axiosSecure(`/volunteer/${user?.email}`)
         console.log(data);
         setVolunteers(data)
         
@@ -111,7 +111,7 @@ if (result.isConfirmed) {
 if (result.isConfirmed) {
 
     try {
-         const{data}= await axiosSecure.delete(`http://localhost:8000/volunteerdelete/${id}`)
+         const{data}= await axiosSecure.delete(`/volunteerdelete/${id}`)
          const updatedVolunteers=volunteers.filter(volunteer => volunteer._id !== id)
          setVolunteers(updatedVolunteers)
          getData()

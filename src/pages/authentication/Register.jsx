@@ -37,7 +37,7 @@ const Register = () => {
     const handleGoogleLogin=async()=>{
     try {
         const result=await signInWithGoogle()
-        const{data}=await axios.post('http://localhost:8000/jwt', {
+        const{data}=await axios.post('https://servetogether-server.vercel.app/jwt', {
             email:result?.user?.email
         },{
             withCredentials:true
@@ -95,7 +95,7 @@ const Register = () => {
         setUser({...user, photoURL:photo, displayName:name})
         navigate(from, {replace:true})
 
-        const {data}=await axios.post('http://localhost:8000/jwt',{
+        const {data}=await axios.post('https://servetogether-server.vercel.app/jwt',{
             email:result?.user?.email
         },{
             withCredentials:true

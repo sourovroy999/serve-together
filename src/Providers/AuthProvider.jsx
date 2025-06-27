@@ -33,7 +33,7 @@ const AuthProvider = ({children}) => {
         setLoading(true)
         //    const{data}= await axios('https://solosphere-server-three.vercel.app/logout' ,{withCredentials: true})
 
-        const{data}=await axios('http://localhost:8000/logout', {withCredentials: true})
+        const{data}=await axios('https://servetogether-server.vercel.app/logout', {withCredentials: true})
         
         return signOut(auth)
         .then(()=>{

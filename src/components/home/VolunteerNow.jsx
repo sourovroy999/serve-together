@@ -14,7 +14,7 @@ const VolunteerNow = () => {
         }, [])
     
         const getData=async()=>{
-            const {data}=await axios(`http://localhost:8000/urgentPosts`, ) //get operations
+            const {data}=await axios(`https://servetogether-server.vercel.app/urgentPosts`, ) //get operations
             // console.log(data);
             setPosts(data)
             

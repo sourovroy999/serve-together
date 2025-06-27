@@ -3,10 +3,9 @@ import axios from "axios";
 import UseAuth from "./UseAuth";
 import { useNavigate } from "react-router";
 import { useEffect } from "react";
-import toast from "react-hot-toast";
 
 const axiosSecure = axios.create({
-    baseURL: 'http://localhost:8000',
+    baseURL: 'https://servetogether-server.vercel.app',
     withCredentials: true,
 });
 

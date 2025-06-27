@@ -1,12 +1,63 @@
-# React + Vite
+ServeTogether
+ServeTogether is a community-driven web platform where users can post volunteering opportunities and request to become volunteers. Built using the MERN stack, it encourages civic engagement by making it easy to connect people who want to help with those who need it.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🌐 Live Demo
+Frontend: https://serve-together-auth.web.app/
 
-Currently, two official plugins are available:
+Backend API: https://servetogether-server.vercel.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🚀 Features
+✅ Post volunteering opportunities
 
-## Expanding the ESLint configuration
+✅ Request to volunteer
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+🔐 JWT-based authentication & protected routes
+
+📅 Choose availability with datepicker
+
+📊 Animated statistics and counters
+
+📱 Fully responsive layout
+
+🌗 Theme-aware UI with Tailwind CSS
+
+🔔 Toast & alert feedback for better UX
+
+🎞️ Swiper carousel and animated scroll reveals
+
+🛠 Tech Stack
+Frontend:
+React
+
+React Router
+
+Axios
+
+Tailwind CSS
+
+Firebase (Authentication & Hosting)
+
+Backend:
+Express.js
+
+MongoDB
+
+JWT (Authentication)
+
+UI/UX Libraries:
+SweetAlert2
+
+React Hot Toast
+
+React Datepicker
+
+React Awesome Reveal
+
+React Icons
+
+React CountUp
+
+React Intersection Observer
+
+Swiper
+

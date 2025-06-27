@@ -36,7 +36,7 @@ const Login = () => {
         try {
             const result=await signIn(email,password)
       //eikhane aro kaj korte hobe
-        await axios.post('http://localhost:8000/jwt', {
+        await axios.post('https://servetogether-server.vercel.app/jwt', {
                email: result?.user?.email,
              } ,{
              withCredentials:true  // ei line na likhle cookie save hobe nah
@@ -79,7 +79,7 @@ const Login = () => {
             const result=await signInWithGoogle()
 
             //add this later
-             await axios.post('http://localhost:8000/jwt', {
+             await axios.post('https://servetogether-server.vercel.app/jwt', {
     email: result?.user?.email,
   } ,{
     withCredentials:true  // ei line na likhle cookie save hobe nah

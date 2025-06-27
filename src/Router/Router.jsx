@@ -49,14 +49,14 @@ const router=createBrowserRouter([
                 element: <PrivateRoute>
                     <PostDetails/>
                 </PrivateRoute>,
-                loader:({params})=>fetch(`http://localhost:8000/post/${params.id}`)
+                loader:({params})=>fetch(`https://servetogether-server.vercel.app/post/${params.id}`)
             },
             {
                 path:'/be-a-volunteer/:id',
                 element:<PrivateRoute>
                     <BeAVolunteer/>
                 </PrivateRoute>,
-                loader:({params})=>fetch(`http://localhost:8000/post/${params.id}`)
+                loader:({params})=>fetch(`https://servetogether-server.vercel.app/post/${params.id}`)
             },
             {
                 path:'/all-posts',
@@ -67,7 +67,7 @@ const router=createBrowserRouter([
                 element:<PrivateRoute>
                     <UpdatePost/>
                 </PrivateRoute>,
-                loader:({params})=>fetch(`http://localhost:8000/post/${params.id}`)
+                loader:({params})=>fetch(`https://servetogether-server.vercel.app/post/${params.id}`)
 
             }
 

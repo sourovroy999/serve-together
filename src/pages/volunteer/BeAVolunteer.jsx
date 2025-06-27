@@ -37,7 +37,7 @@ const BeAVolunteer = () => {
         }
 
          try {
-        const{data}=await axios.post('http://localhost:8000/volunteers', newVounteerEntries)
+        const{data}=await axios.post('https://servetogether-server.vercel.app/volunteers', newVounteerEntries)
                 navigate('/my-posts')
                 toast.success('Your request has been sent')
         } catch (err) {
@@ -77,12 +77,7 @@ const BeAVolunteer = () => {
                 <label className="">Category</label> 
                   <input readOnly defaultValue={category} name="category" type="text"   className="border  max-w-xs py-1 px-2 rounded-md"/>
 
-        {/* <select  defaultValue={category}  name="category" id="" className="border  py-1 rounded-md bg-gray-500">
-            <option  value="Healthcare">Healthcare</option>
-            <option value="Education">Education</option>
-            <option value="Social Service">Social Service</option>
-            <option value="Animal Welfare">Animal Welfare</option>
-        </select> */}
+        
 
         <label className="">Location</label> 
         <input readOnly defaultValue={location} name="location" type="text" placeholder="Location"  className="border  max-w-xs py-1 px-2 rounded-md"/>
