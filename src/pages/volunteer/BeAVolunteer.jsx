@@ -32,7 +32,7 @@ const BeAVolunteer = () => {
         newVounteerEntries.postId= _id
         console.log(newVounteerEntries);
         if(volunteernumber<1){
-                toast.error('volunteer filled')
+                toast.error('All positions have been filled. Please check other opportunities!')
                 return
         }
 
@@ -111,6 +111,23 @@ const BeAVolunteer = () => {
 
         <label className="">Organizer Email</label> 
         <input readOnly defaultValue={organizerEmail} name="organizerEmail" type="text" placeholder="Organizer Email"  className="border  max-w-xs py-1 px-2 rounded-md"/>
+
+        <label className="">Suggestion</label> 
+        
+        <textarea className='block  w-full px-4 py-2 mt-2 
+               border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring'
+              name='suggestion'
+              id='suggestion'
+              cols='30'>
+
+
+        </textarea>
+
+        <label className="">Status</label> 
+        <input readOnly defaultValue='requested' name="request" type="text" placeholder="Give Your Suggestion"  className="border  max-w-xs py-1 px-2 rounded-md"/>
+
+
+
 
         <label className="">Your Name</label> 
         <input readOnly required name="Volunteer_Name" defaultValue={user.displayName} type="text" placeholder="Volunteer Name"  className="border  max-w-xs py-1 px-2 rounded-md"/>

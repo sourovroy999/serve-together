@@ -18,7 +18,7 @@ const Home = () => {
 
 
             {/* Volunteer needs now section */}
-            <div className="px-4">
+            <div className="px-4 mx-w-4xl">
 
                 <VolunteerNow/>
             </div>

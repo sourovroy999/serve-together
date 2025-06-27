@@ -8,7 +8,7 @@ const Footer = () => {
        
 
 
-       <footer className="mt-10 bg-base-300 text-base-content md:p-10">
+       <footer className=" bg-blue-950 text-base-content text-white md:p-10">
         <div className='flex flex-col '>
 
             {/* top */}

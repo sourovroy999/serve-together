@@ -39,11 +39,11 @@ const AllPosts = () => {
     
 
     return (
-        <div  className="mx-auto text-base-content max-w-6xl">
+        <div  className="mx-auto text-base-content pb-32  max-w-6xl">
             {/* <p className="text-center text-2xl my-6">all postssss: {posts.length}</p> */}
             {/* <div className="flex my-10  justify-center items-center"> */}
                 
-            <form className="flex flex-col justify-center my-6 mx-2 md:mx-0 items-center md:flex-row" onSubmit={handleSearch}>
+            <form className="flex flex-col justify-center mt-10 mb-15 mx-2 md:mx-0 items-center md:flex-row" onSubmit={handleSearch}>
                 <input className="   w-[260px] input border h-10 rounded-md " type="text" 
                 onChange={(e)=>setSearchText(e.target.value)}
                 name="search"

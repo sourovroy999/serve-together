@@ -46,7 +46,7 @@ const Navbar = () => {
   </div>
 
 <div className=''>
-  <Link to={'/all-posts'} className='font-mono border-0  rounded py-1 px-2 hover:cursor hover:underline hover:text-blue-400'>All Posts</Link>
+  <Link to={'/all-posts'} className='font-serif border-0  rounded py-1 px-2 hover:cursor hover:underline hover:text-blue-400'>All Posts</Link>
   
 </div>
 
@@ -90,6 +90,7 @@ const Navbar = () => {
         <li><Link to={'/add-volunteer-needed-post'}>Add Volunteer need Post
 </Link></li>
         <li className='my-2'><Link to={'/my-posts'}>Manage My Posts </Link></li>
+        
         <li className='btn mt-3' onClick={handleLogOut}>Log Out</li>
       </ul>
     </div>

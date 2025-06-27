@@ -39,7 +39,7 @@ const PostDetails = () => {
             
         // </div>
 
-           <div className=" md:mt-10 max-w-2xl mx-auto    rounded-lg shadow-sm  ">
+           <div className=" md:my-10 max-w-2xl mx-auto    rounded-lg shadow-sm  ">
             <a href="#">
                 <img className="rounded-t-lg" src={imageone} alt="" />
             </a>

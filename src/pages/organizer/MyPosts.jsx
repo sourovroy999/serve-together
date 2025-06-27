@@ -5,6 +5,7 @@ import { Link } from "react-router";
 import Swal from "sweetalert2";
 import UseAxiosSecure from "../../hooks/UseAxiosSecure";
 import UseAuth from "../../hooks/UseAuth";
+import noDataImg from '../../assets/data/no-data.png'
 
 const MyPosts = () => {
 
@@ -141,7 +142,22 @@ if (result.isConfirmed) {
             <h1 className='text-center font-bold text-3xl mt-3'>My volunteer need post</h1>
 
              <div className="mt-9 ">
-                           <div className="overflow-x-auto max-w-5xl mx-auto">
+
+              {
+                posts.length === 0 && <div className="flex flex-col items-center my-10 ">
+
+                <img className="w-40" src={noDataImg} alt="" />
+                
+                 <p className="text-sm text-gray-500">
+     You Didn't Post Any Opportunities
+  </p>
+                <Link to={'/add-volunteer-needed-post'} className="btn my-3 text-white bg-blue-500">Add Opportunities</Link>
+                
+              </div>
+              }
+
+              {
+                posts.length>0 &&  <div className="overflow-x-auto max-w-5xl mx-auto">
               <table className="table ">
                 {/* head */}
                 <thead>
@@ -174,7 +190,13 @@ if (result.isConfirmed) {
               
                 </tbody>
               </table>
-            </div>
+                           </div>
+              }
+
+          
+                          
+
+
               </div> 
 
             
@@ -183,6 +205,8 @@ if (result.isConfirmed) {
 
 
 
+       <hr />
+
 
 
             {/* My My Volunteer Request Post*/}
@@ -190,7 +214,20 @@ if (result.isConfirmed) {
         <h1 className="font-bold text-3xl text-center my-10">My Volunteer Requests  </h1>
 
                      <div className="mt-9 ">
-                           <div className="overflow-x-auto max-w-5xl mx-auto">
+              {
+                volunteers.length === 0 && <div className="flex flex-col items-center my-10 ">
+
+                <img className="w-40" src={noDataImg} alt="" />
+               <p className="text-sm text-gray-500">
+    You haven’t made any requests yet. Start by submitting one!
+  </p>
+                <Link to={'/all-posts'} className="btn my-3 text-white bg-blue-500">See All Posts</Link>
+                
+              </div>
+              }
+
+              {
+                volunteers.length>0 && <div className="overflow-x-auto max-w-5xl mx-auto">
               <table className="table ">
                 {/* head */}
                 <thead>
@@ -224,6 +261,9 @@ if (result.isConfirmed) {
               </tbody>
               </table>
             </div>
+              }
+
+                           
               </div> 
 
 
