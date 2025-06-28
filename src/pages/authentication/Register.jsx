@@ -4,8 +4,11 @@ import toast from 'react-hot-toast';
 import { Link, Navigate, useLocation, useNavigate } from 'react-router';
 import axios from 'axios';
 import registerBanner from '../../assets/registrationImg.jpg'
+import useErrorToast from '../../hooks/useToastError';
 
 const Register = () => {
+
+  const showError=useErrorToast()
  
   
     
@@ -48,6 +51,7 @@ const Register = () => {
     } catch (error) {
         console.log(error);
         console.log(error?.message);
+        showError(error)
         
         
     }
@@ -105,9 +109,10 @@ const Register = () => {
         toast.success('Sign Up Successfully')
         
         
-    } catch (error) {
+    } catch (error) {   
         console.log(error);
-        toast.error(error.message)
+        // toast.error(error.message)
+        showError(error)
         
     }
 

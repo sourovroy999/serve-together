@@ -5,6 +5,7 @@ import toast from 'react-hot-toast';
 import axios from 'axios';
 
 import logInBanner from '../../assets/logInImgOne.jpg'
+import useErrorToast from '../../hooks/useToastError';
 
 const Login = () => {
 
@@ -13,18 +14,15 @@ const Login = () => {
     const location=useLocation()
     const from=location.state?.from?.pathname || '/'
 
+    const showError=useErrorToast()
+
     useEffect(()=>{
         if(!loading && user){
             navigate('/')
         }
     },[loading, navigate, user])
 
-    const firebaseErrors = {
-  'invalid-credential': 'Invalid email or password.',
-  'user-not-found': 'User not found.',
-  'wrong-password': 'Incorrect password.',
-  'too-many-requests': 'Too many login attempts. Try again later.',
-}
+ 
 
 
     const handleSignIn=async(e)=>{
@@ -49,22 +47,8 @@ const Login = () => {
 
             
         } catch (error) {
-            console.log(error);
-            const fullmessage= error.message || ''
-
-            const firebaseErrors = {
-  'invalid-credential': 'Invalid email or password.',
-  'user-not-found': 'User not found.',
-  'wrong-password': 'Incorrect password.',
-  'too-many-requests': 'Too many login attempts. Try again later.',
-}
-
-            const message=fullmessage.split('/')[1]?.split(')')[0];
-
-            // toast.error(error?.message || 'Failed to sign in. Please check credentials.');
-
-            toast.error(firebaseErrors[message] || message)
-
+          
+          showError(error)
 
 
             // setLoading(false)
@@ -89,8 +73,9 @@ toast.success('log in successfully')
 navigate(from, {replace:true})
 
         } catch (error) {
-            // console.log(error);
-            console.log('errorrr');
+            showError(error)
+           
+
             
             
         }
