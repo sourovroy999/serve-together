@@ -102,7 +102,7 @@ const Navbar = () => {
 </Link></li>
         <li className='my-2'><Link to={'/my-posts'}>Manage My Posts </Link></li>
         
-        <li className='btn mt-3' onClick={handleLogOut}>Log Out</li>
+        <li className='btn mt-3 bg-slate-500 text-white hover:bg-slate-600 ' onClick={handleLogOut}>Log Out</li>
       </ul>
     </div>
     }

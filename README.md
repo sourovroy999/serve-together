@@ -84,3 +84,19 @@ Swiper
 
 ## 🖼️ Screenshots
 
+![Home Page - Light Mode](Screenshots/home.jpg)
+
+![Home Page - Dark Mode](Screenshots/home%20dark.jpg)
+
+![Home Page on Mobile](Screenshots/home%20mobile.png)
+
+![Home Page on Tablet](Screenshots/home%20tablet.png)
+
+![All Volunteer Posts Page](Screenshots/all%20posts.png)
+
+![Login Page](Screenshots/login.png)
+
+![Sign Up Page](Screenshots/Sign%20Up.png)
+
+![We Need You Section](Screenshots/we%20need%20you.png)
+
