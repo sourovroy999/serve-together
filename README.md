@@ -21,6 +21,11 @@ ServeTogether is a platform that connects organizations offering volunteer oppor
 
 Many people want to volunteer but don’t know where to start. ServeTogether solves this by providing a centralized platform for posting and finding volunteer opportunities, making community service more accessible.
 
+> 🔔 **Note:** ServeTogether uses a **single user type**.  
+> Users can both **post opportunities** and **request to volunteer** —  
+> no need for multiple accounts or roles.
+
+
 
 🚀 Features
 ✅ Post volunteering opportunities

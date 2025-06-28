@@ -43,7 +43,7 @@ const AllPosts = () => {
             {/* <p className="text-center text-2xl my-6">all postssss: {posts.length}</p> */}
             {/* <div className="flex my-10  justify-center items-center"> */}
                 
-            <form className="flex flex-col justify-center mt-10 mb-15 mx-2 md:mx-0 items-center md:flex-row" onSubmit={handleSearch}>
+            <form className="flex flex-col justify-center mt-10 mb-10 mx-2 md:mx-0 items-center md:flex-row" onSubmit={handleSearch}>
                 <input className="   w-[260px] input border h-10 rounded-md " type="text" 
                 onChange={(e)=>setSearchText(e.target.value)}
                 name="search"
@@ -65,7 +65,7 @@ const AllPosts = () => {
             
 
 
-            <div className="grid px-3   md:grid-cols-2 lg:grid-cols-3 gap-7">
+            <div className="grid px-3   md:grid-cols-2 md:px-5 lg:px-10 lg:grid-cols-3 gap-7">
                 {
                     posts.map(post=> <SInglePost key={post._id} post={post}></SInglePost>)
                 }

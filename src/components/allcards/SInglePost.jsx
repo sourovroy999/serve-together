@@ -84,11 +84,11 @@ const SInglePost = ({post}) => {
 //         </div>
 //     </div>
 // </div>
-<div className="flex  flex-col h-full  rounded-lg shadow-sm transition-transform duration-300 hover:scale-[1.01] hover:shadow-xl text-base-content">
+<div className="flex group flex-col h-full  rounded-lg shadow-sm   transition-all duration-500 ease-in-out  hover:scale-[1.01] hover:shadow-xl hover:-translate-y-1 text-base-content">
 
   {/* Image */}
-  <div className="h-48 w-full overflow-hidden rounded-t-lg">
-    <img className="h-full w-full object-cover" src={thumbnail} alt="no image" />
+  <div className="h-48 w-full  overflow-hidden rounded-t-lg">
+    <img className="h-full w-full trans group-hover:scale-105 transition-transform duration-300 ease-in-out object-cover" src={thumbnail} alt="no image" />
   </div>
 
   {/* Content */}
