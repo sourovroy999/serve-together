@@ -84,7 +84,7 @@ Swiper
 
 ## 🖼️ Screenshots
 
-![Home Page - Light Mode](Screenshots/home.jpg)
+![Home Page - Light Mode](Screenshots/home%20.jpg)
 
 ![Home Page - Dark Mode](Screenshots/home%20dark.jpg)
 
