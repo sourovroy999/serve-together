@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import  { useContext, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../../Providers/AuthProvider';
 import toast from 'react-hot-toast';
@@ -10,7 +10,7 @@ import useErrorToast from '../../hooks/useToastError';
 const Login = () => {
 
     const navigate=useNavigate()
-    const{user,theme,setLoading, loading,signIn,signInWithGoogle}=useContext(AuthContext)
+    const{user,theme,loading,signIn,signInWithGoogle}=useContext(AuthContext)
     const location=useLocation()
     const from=location.state?.from?.pathname || '/'
 

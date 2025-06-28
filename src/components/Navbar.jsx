@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 
 
 const Navbar = () => {
-   const {logOut,loading, theme, setTheme, user}=UseAuth()
+   const {logOut,theme, setTheme, user}=UseAuth()
 
    const navigate=useNavigate()
 
@@ -35,7 +35,6 @@ const Navbar = () => {
   
 
   const handleToggle=(e)=>{
-    console.log('toggled');
     
     if(e.target.checked){
 
@@ -54,7 +53,7 @@ const Navbar = () => {
     return (
         <div className="navbar  md:px-20 flex text-base-content justify-between bg-base-200 shadow-sm ">
   <div className="">
-    <Link to={'/'} className="font-semibold text-xl">ServeTogether</Link>
+    <Link to={'/'} className="font-semibold text-xl">Serve<span className='text-green-600'>Together</span></Link>
   </div>
 
 <div className=''>
@@ -111,11 +110,11 @@ const Navbar = () => {
    
 
   {  !user && <div  className="flex gap-2">
-    <div className={`flex flex-col md:flex-row `}>
+    <div className={`flex flex-col gap-2 md:flex-row `}>
 
-    <Link to={'/login'}  className='btn btn-sm '>Login</Link>
+    <Link to={'/login'}  className='btn bg-green-400 hover:bg-green-600 text-white btn-sm '>Login</Link>
 
-    <Link to={'/register'} className='btn btn-sm'>Register</Link>
+    <Link to={'/register'} className='btn bg-green-400 hover:bg-green-600 text-white btn-sm'>Register</Link>
      </div>
 
     

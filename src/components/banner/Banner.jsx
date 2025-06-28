@@ -1,5 +1,3 @@
-import React, { useRef, useState } from 'react';
-// Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles
@@ -15,7 +13,7 @@ import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 
 import bannerOne from '../../assets/banners/volunteer-one.jpg'
 import bannerTwo from '../../assets/banners/volunteer-two.jpg'
-import bannerThree from '../../assets/banners/bannerImageThree.jpg'
+import bannerThree from '../../assets/banners/bannerImageThree-min.jpg'
 import { Fade } from 'react-awesome-reveal';
 // import bannerFour from '../../assets/banners/volunteer-four.jpg'
 
@@ -38,7 +36,7 @@ const Banner = () => {
             >
                  <SwiperSlide>
                   
-                  <img src={bannerOne} alt="" />
+                  <img src={bannerThree} alt="" />
                   <div className='absolute inset-0 bg-[#00000097]'></div>
                   <div className="absolute inset-0 flex items-center mx-2 md:ml-32  ">
 
@@ -75,7 +73,7 @@ const Banner = () => {
                  </SwiperSlide>
 
                  <SwiperSlide>
-                  <img src={bannerThree} alt="" />
+                  <img src={bannerOne} alt="" />
                     <div className='absolute inset-0 bg-[#00000097]'></div>
                   <div className="absolute inset-0 flex items-center mx-2 md:ml-32  ">
 

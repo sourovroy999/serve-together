@@ -1,9 +1,8 @@
-import React, { createContext,  useEffect, useState } from 'react';
+import { createContext,  useEffect, useState } from 'react';
 import app from '../firebase/firebase.config';
 import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
 import axios from 'axios';
 import toast from 'react-hot-toast';
-import { useNavigate } from 'react-router';
 
 export const AuthContext=createContext(null)
 const auth=getAuth(app)
@@ -37,7 +36,7 @@ const AuthProvider = ({children}) => {
         setLoading(true)
         //    const{data}= await axios('https://solosphere-server-three.vercel.app/logout' ,{withCredentials: true})
 
-        const{data}=await axios('https://servetogether-server.vercel.app/logout', {withCredentials: true})
+        await axios('https://servetogether-server.vercel.app/logout', {withCredentials: true})
         
         return signOut(auth)
         .then(()=>{
@@ -61,7 +60,7 @@ const AuthProvider = ({children}) => {
         const unsubscribe=onAuthStateChanged(auth, 
             createUser=>{
                 setUser(createUser)
-                console.log('currentuser--->', createUser);
+                // console.log('currentuser--->', createUser);
                 setLoading(false)
                 
             }

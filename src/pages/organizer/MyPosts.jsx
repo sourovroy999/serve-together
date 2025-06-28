@@ -1,6 +1,4 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
-import toast from "react-hot-toast";
 import { Link } from "react-router";
 import Swal from "sweetalert2";
 import UseAxiosSecure from "../../hooks/UseAxiosSecure";
@@ -14,8 +12,6 @@ const MyPosts = () => {
 
     const[posts, setPosts]=useState([])
     const[volunteers, setVolunteers]=useState([])
-    console.log(posts);
-    console.log(volunteers);
     
 
     useEffect(()=>{
@@ -34,10 +30,8 @@ const MyPosts = () => {
     //volunteer needed related (by the organizer)
     
     const getData=async()=>{
-        // const email='sourov@gmail.com'
 
         const {data}=await axiosSecure(`/organization/${user.email}`)
-        // console.log(data);
         setPosts(data)
         
     }
@@ -58,7 +52,7 @@ const MyPosts = () => {
 if (result.isConfirmed) {
 
     try {
-        const{data}=await axiosSecure.delete(`/delete-post/${id}`) 
+        await axiosSecure.delete(`/delete-post/${id}`) 
           const remaining=posts.filter(post=> post._id !==id)
          setPosts(remaining)
          getData()
@@ -71,7 +65,8 @@ if (result.isConfirmed) {
     
 
     } catch (error) {
-        console.log(error);
+      console.log(error);
+      
           Swal.fire("Something went wrong. Try again.");
     }
 
@@ -91,13 +86,11 @@ if (result.isConfirmed) {
     const getVolunteersData=async()=>{
         
         const {data}=await axiosSecure(`/volunteer/${user?.email}`)
-        console.log(data);
         setVolunteers(data)
         
     }
 
     const handleVolunteerCancel=async(id)=>{
-        console.log(id);
         
     const result= await  Swal.fire ({
   title: "Are you sure?",
@@ -114,7 +107,7 @@ if (result.isConfirmed) {
 if (result.isConfirmed) {
 
     try {
-         const{data}= await axiosSecure.delete(`/volunteerdelete/${id}`)
+          await axiosSecure.delete(`/volunteerdelete/${id}`)
          const updatedVolunteers=volunteers.filter(volunteer => volunteer._id !== id)
          setVolunteers(updatedVolunteers)
          getData()
@@ -127,7 +120,8 @@ if (result.isConfirmed) {
     
 
     } catch (error) {
-        console.log(error);
+      console.log(error);
+      
           Swal.fire("Something went wrong. Try again.");
     }
 

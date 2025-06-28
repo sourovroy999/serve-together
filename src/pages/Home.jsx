@@ -1,11 +1,10 @@
-import AllPosts from "../components/allcards/AllPosts";
 import Banner from "../components/banner/Banner";
 import VolunteerNow from "../components/home/VolunteerNow";
 import "react-datepicker/dist/react-datepicker.css";
 
-import imageone from '../assets/banners/volunteer-one.jpg'
 import CountSystem from "../components/home/CountSystem";
 import { useEffect } from "react";
+import { Fade } from "react-awesome-reveal";
 
 const Home = () => {
 
@@ -26,27 +25,15 @@ const Home = () => {
 
             {/* Volunteer needs now section */}
             <div className="px-4 mx-w-4xl">
-
+ 
                 <VolunteerNow/>
             </div>
+            <Fade delay={300} triggerOnce>
+        <div className="max-w-6xl mx-auto">
+
            <CountSystem/>
-
-
-            {/* count section */}
-
-
-
-
-
-
-                
-
-
-
-
-                {/* <AllPosts/> */}
-                
-
+        </div>
+            </Fade>
 
             {/* 2 extra sections */}
 

@@ -22,14 +22,8 @@ const AddVolunteer = () => {
     const formData = new FormData(form);
     const newVolunteerEntries = Object.fromEntries(formData.entries());
 
-    const title=e.target.title.value
-    console.log(title);
-    
-
-    console.log(newVolunteerEntries);
-
     try {
-      const { data } = await axiosSecure.post('/organizations', newVolunteerEntries);
+      await axiosSecure.post('/organizations', newVolunteerEntries);
       navigate('/my-posts');
       toast.success('Your Organizer data added successfully');
     } catch (err) {
@@ -39,7 +33,7 @@ const AddVolunteer = () => {
 
   return (
         <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100 text-gray-800 py-12 px-4">
-      <div className="w-full max-w-2xl p-10 bg-white rounded-3xl shadow-xl transform transition-all duration-500 ">
+      <div className="w-full max-w-2xl p-10 bg- rounded-3xl shadow-xl transform transition-all duration-500 ">
         <h2 className="text-4xl font-extrabold text-center mb-10 text-purple-700">
           Share Your Volunteer Opportunity
         </h2>
@@ -148,7 +142,7 @@ const AddVolunteer = () => {
             <label htmlFor="deadline" className="block mb-2 font-semibold text-gray-700 text-lg">
               Application Deadline
             </label>
-                   <DatePicker name="deadline" className="text-blue-400 border p-2 rounded-lg" 
+                   <DatePicker name="deadline" className="text-black border p-2 rounded-lg" 
                      selected={startDate} 
                      minDate={subDays(new Date(), 0)}
                      onChange={(date)=> setStartDate(date)}/>
@@ -167,7 +161,7 @@ const AddVolunteer = () => {
                 type="text"
                 id="organizerName"
                 defaultValue={user?.displayName || "N/A"}
-                className="input bg-white input-bordered w-full bg-gray-100 cursor-not-allowed px-5 py-3 rounded-lg"
+                className="input bg-white input-bordered w-full cursor-not-allowed px-5 py-3 rounded-lg"
               />
             </div>
             <div>

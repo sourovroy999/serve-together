@@ -3,12 +3,10 @@ import axios from 'axios';
 import toast from 'react-hot-toast';
 import UseAuth from '../../hooks/UseAuth';
 import "react-datepicker/dist/react-datepicker.css";
-import { useEffect, useState } from 'react';
-import DatePicker from 'react-datepicker';
+import { useEffect} from 'react';
 
 
 const BeAVolunteer = () => {
-     const [startDate, setStartDate] = useState(new Date());
      const navigate=useNavigate()
     
     const{user}=UseAuth()
@@ -19,9 +17,7 @@ const BeAVolunteer = () => {
     
 
     const postData=useLoaderData()
-    console.log(postData);
     const{category,description,location, organizerEmail, organizerName, deadline, thumbnail,title,volunteernumber,  _id  }=postData
-    console.log(postData);
 
       useEffect(()=>{
           document.title='serveTogether | Be A Volunteer'
@@ -34,21 +30,18 @@ const BeAVolunteer = () => {
         const formData=new FormData(form)
         const newVounteerEntries= Object.fromEntries(formData.entries())
         newVounteerEntries.postId= _id
-        console.log(newVounteerEntries);
         if(volunteernumber<1){
                 toast.error('All positions have been filled. Please check other opportunities!')
                 return
         }
 
          try {
-        const{data}=await axios.post('https://servetogether-server.vercel.app/volunteers', newVounteerEntries)
+        await axios.post('https://servetogether-server.vercel.app/volunteers', newVounteerEntries)
                 navigate('/my-posts')
                 toast.success('Your request has been sent')
         } catch (err) {
-        console.log(err);
-        
-        
-    }
+        toast.error(err)
+        }
         
 
     }
@@ -92,15 +85,6 @@ const BeAVolunteer = () => {
         {/* deadline */}
         <label htmlFor="">Deadline</label>  
         <input readOnly defaultValue={deadline} name="deadline"  type="text" className="border   max-w-xs py-1 px-2 rounded-md"/>
-        {/* post id */}
-       
-
-
-
-
-
-         {/* <DatePicker  name="deadline" className="text-blue-400 border p-2 rounded-lg" selected={deadline} /> */}
-        
 
 
 

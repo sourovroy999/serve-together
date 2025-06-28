@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import  { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../Providers/AuthProvider';
 import toast from 'react-hot-toast';
 import { Link, Navigate, useLocation, useNavigate } from 'react-router';
@@ -23,7 +23,7 @@ const Register = () => {
 
     const{user,
         setUser,
-        loading,
+        
         
         createUser,
       
@@ -40,7 +40,7 @@ const Register = () => {
     const handleGoogleLogin=async()=>{
     try {
         const result=await signInWithGoogle()
-        const{data}=await axios.post('https://servetogether-server.vercel.app/jwt', {
+        await axios.post('https://servetogether-server.vercel.app/jwt', {
             email:result?.user?.email
         },{
             withCredentials:true
@@ -49,8 +49,6 @@ const Register = () => {
         toast.success('log in successfully')
         navigate(from, {replace:true})
     } catch (error) {
-        console.log(error);
-        console.log(error?.message);
         showError(error)
         
         
@@ -89,11 +87,9 @@ const Register = () => {
   }
 
 
-    console.log(email, name, photo, pass);
 
     try {
         const result=await createUser(email,pass)
-        console.log(result);
         
         await updateUserProfile(name,photo)
 
@@ -101,7 +97,7 @@ const Register = () => {
         setUser({...user, photoURL:photo, displayName:name})
         navigate(from, {replace:true})
 
-        const {data}=await axios.post('https://servetogether-server.vercel.app/jwt',{
+        await axios.post('https://servetogether-server.vercel.app/jwt',{
             email:result?.user?.email
         },{
             withCredentials:true
@@ -110,8 +106,6 @@ const Register = () => {
         
         
     } catch (error) {   
-        console.log(error);
-        // toast.error(error.message)
         showError(error)
         
     }

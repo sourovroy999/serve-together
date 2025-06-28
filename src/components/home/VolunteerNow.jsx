@@ -2,7 +2,6 @@ import axios from 'axios';
 import  { useEffect, useState } from 'react';
 import SInglePost from '../allcards/SInglePost';
 import { Link } from 'react-router';
-import UseAuth from '../../hooks/UseAuth';
 import { Fade } from 'react-awesome-reveal';
 import toast from 'react-hot-toast';
 
@@ -10,7 +9,6 @@ const VolunteerNow = () => {
 
       const[posts, setPosts]=useState([]);
 
-      const{user }=UseAuth()
       const [loading, setLoading]=useState(false)
     
         useEffect(()=>{
@@ -35,7 +33,8 @@ const VolunteerNow = () => {
         if (loading) {
     return (
       <div className="flex justify-center items-center h-40">
-        <div className="w-10 h-10 border-4 border-dashed rounded-full animate-spin border-blue-600"></div>
+        {/* <div className="w-10 h-10 border-4 border-dashed rounded-full animate-spin border-blue-600"></div> */}
+        <span className="loading loading-spinner text-primary"></span>
       </div>
     );
   }
@@ -44,7 +43,7 @@ const VolunteerNow = () => {
     return (
         <div>
             <Fade  >
-            <p className='text-center font-semibold text-3xl my-10 text-orange-400'> Urgent Posts {posts.length}</p>
+            <p className='text-center font-semibold text-3xl my-10 text-green-500'> Urgent Posts {posts.length}</p>
             </Fade>
 
        <Fade triggerOnce>
@@ -56,10 +55,13 @@ const VolunteerNow = () => {
 
             </div>
 </Fade>
+
+       <Fade triggerOnce>
             <div className='flex justify-center my-10'>
 
             <Link to={'/all-posts'}  className="btn bg-blue-500 text-white hover:bg-blue-900">See All Posts</Link>
             </div>
+            </Fade>
 
 
 

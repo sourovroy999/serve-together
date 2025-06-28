@@ -1,5 +1,4 @@
-import React from 'react';
-import { FaFacebook, FaInstagram, FaLinkedin, FaTwitch, FaTwitter } from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 const Footer = () => {
     return (
@@ -13,7 +12,7 @@ const Footer = () => {
 
             {/* top */}
             <div className='flex flex-col md:flex-row md:px-10 py-7  justify-between  px-6 md:items-center '>
-                <p className=' font-bold text-3xl md:text-4xl'>ServeTogether</p>
+                <p className=' font-bold text-3xl md:text-4xl'>Serve<span className='text-green-600'>Together</span></p>
                 <p className='md:text-xl font-bold'>Kindness starts with you – give today!</p>
             </div>
             

@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import SInglePost from "./SInglePost";
-import UseAuth from "../../hooks/UseAuth";
 import toast from "react-hot-toast";
 
 
@@ -9,7 +8,6 @@ const AllPosts = () => {
       const[posts, setPosts]=useState([])
       const[search,setsearch]=useState('')
       const[searchText,setSearchText]=useState('')
-    // console.log(posts);
     const[loading,setLoading]=useState(false)
 
       useEffect(()=>{
@@ -26,11 +24,11 @@ const AllPosts = () => {
             try{
                 setLoading(true)
                 const {data}=await axios(`https://servetogether-server.vercel.app/organizationsPosts?search=${search}`, ) //get operations
-        // console.log(data);
         setPosts(data)
 
             }catch(err){
-                console.log('error while loading posts', err);
+                console.log(err);
+                
                 toast.error('Enable Your Internet Connection to see all Posts')
                 
 
@@ -43,8 +41,9 @@ const AllPosts = () => {
 
     if (loading) {
     return (
-      <div className="flex justify-center items-center h-40">
-        <div className="w-10 h-10 border-4 border-dashed rounded-full animate-spin border-blue-600"></div>
+      <div className="flex justify-center items-center h-80 ">
+        {/* <div className="w-10 h-10 border-4 border-dashed rounded-full animate-spin border-blue-600"></div> */}
+        <span className="loading loading-spinner text-primary"></span>
       </div>
     );
   }
@@ -53,13 +52,11 @@ const AllPosts = () => {
 
     const handleSearch=(e)=>{
         e.preventDefault()
-        console.log('search btn clicked');
         
         setsearch(searchText)
 
     }
     const handleReset=()=>{
-        console.log('reset lickeee');
         
         setsearch('')
         setSearchText('')
@@ -70,10 +67,8 @@ const AllPosts = () => {
 
     return (
         <div  className="mx-auto text-base-content pb-32  max-w-6xl">
-            {/* <p className="text-center text-2xl my-6">all postssss: {posts.length}</p> */}
-            {/* <div className="flex my-10  justify-center items-center"> */}
                 
-            <form className="flex flex-col justify-center mt-10 mb-10 mx-2 md:mx-0 items-center md:flex-row" onSubmit={handleSearch}>
+            <form className={`flex flex-col justify-center mt-10 mb-10 mx-2 md:mx-0 items-center md:flex-row ${loading && 'hidden'}`} onSubmit={handleSearch}>
                 <input className="   w-[260px] input border h-10 rounded-md " type="text" 
                 onChange={(e)=>setSearchText(e.target.value)}
                 name="search"
@@ -90,7 +85,6 @@ const AllPosts = () => {
             </div>
             </form>
 
-            {/* </div> */}
 
             
 
