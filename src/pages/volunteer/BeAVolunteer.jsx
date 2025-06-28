@@ -47,91 +47,124 @@ const BeAVolunteer = () => {
     }
 
     return (
-           <div className="pb-20 text-base-content">
-            <p className="text-2xl text-center my-6">Be A Volunteer</p>
-
-
-<div className="max-w-xs mx-auto">
-        <form onSubmit={handleBeAVolunteer} action="" className="flex justify-center flex-col gap-2">
-          
-                <label className="">Thumbnail URL</label> 
-        <input readOnly  defaultValue={thumbnail} name="thumbnail" type="text" placeholder="Thumbnail URL"  className="border  max-w-xs py-1 px-2 rounded-md"/>
-
-                <label  className="">Post Title</label> 
-        <input readOnly  defaultValue={title} name="title" type="text" placeholder="Post Title"  className="border  max-w-xs py-1 px-2 rounded-md"/>
-
-                <label className="">Description</label> 
-          <textarea defaultValue={description} readOnly 
-              className='block  w-full px-4 py-2 mt-2 
-               border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring'
-              name='description'
-              id='description'
-              cols='30'
-            ></textarea>
-
-
-
-                <label className="">Category</label> 
-                  <input readOnly defaultValue={category} name="category" type="text"   className="border  max-w-xs py-1 px-2 rounded-md"/>
+      
+<div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-sky-300 to-yellow-200 text-gray-800 py-12 px-4">
 
         
-
-        <label className="">Location</label> 
-        <input readOnly defaultValue={location} name="location" type="text" placeholder="Location"  className="border  max-w-xs py-1 px-2 rounded-md"/>
-
-        <label className="">No Of Volunteer Needed</label> 
-        <input readOnly defaultValue={volunteernumber} name="volunteernumber" type="number" placeholder="No Of Volunteer Needed"  className="border  max-w-xs py-1 px-2 rounded-md"/>
-
-        {/* deadline */}
-        <label htmlFor="">Deadline</label>  
-        <input readOnly defaultValue={deadline} name="deadline"  type="text" className="border   max-w-xs py-1 px-2 rounded-md"/>
-
-
-
-
-        <label className="">Organizer Name</label> 
-        <input readOnly defaultValue={organizerName} name="organizerName" type="text" placeholder="Organizer Name"  className="border  max-w-xs py-1 px-2 rounded-md"/>
-
-        <label className="">Organizer Email</label> 
-        <input readOnly defaultValue={organizerEmail} name="organizerEmail" type="text" placeholder="Organizer Email"  className="border  max-w-xs py-1 px-2 rounded-md"/>
-
-        <label className="">Suggestion</label> 
+  <div className="w-full max-w-2xl p-10 rounded-3xl shadow-xl transform transition-all duration-500">
+<h2 className="text-3xl font-extrabold text-center mb-10 text-purple-700">
+         Request Form
+        </h2>
         
-        <textarea className='block  w-full px-4 py-2 mt-2 
-               border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring'
-              name='suggestion'
-              id='suggestion'
-              cols='30'>
+    <form onSubmit={handleBeAVolunteer} className="space-y-7">
 
 
-        </textarea>
+      {/* Post Title */}
+      <div>
+        <label htmlFor="title" className="block mb-2 font-semibold text-gray-600 text-lg">Post Title</label>
+        <input readOnly defaultValue={title} required name="title" type="text" id="title"
+          className="input bg-gradient-to-br from-cyan-100 to-yellow-50 text-gray-600 w-full px-5 py-3 rounded-lg focus:ring-2 focus:ring-purple-500 transition-colors"
+        />
+      </div>
 
-        <label className="">Status</label> 
-        <input readOnly defaultValue='requested' name="request" type="text" placeholder="Give Your Suggestion"  className="border  max-w-xs py-1 px-2 rounded-md"/>
+      {/* Description */}
+      <div>
+        <label htmlFor="description" className="block mb-2 font-semibold text-gray-600 text-lg">Description</label>
+        <textarea defaultValue={description} required readOnly name="description" id="description" rows="6"
+          className="textarea bg-gradient-to-br from-cyan-100 to-yellow-50 text-gray-600 w-full px-5 py-3 rounded-lg focus:ring-2 focus:ring-purple-500 transition-colors"
+        ></textarea>
+      </div>
 
+      {/* Category */}
+      <div>
+        <label htmlFor="category" className="block mb-2 font-semibold text-gray-600 text-lg">Category</label>
+        <select defaultValue={category} name="category" id="category"
+          className="select bg-gradient-to-br from-cyan-100 to-yellow-50 text-transparent bg-clip-text w-full px-5  rounded-lg focus:ring-2 focus:ring-purple-500 transition-colors"
+        >
+          <option value={category}>{category}</option>
+        </select>
+      </div>
 
+      {/* Location */}
+      <div>
+        <label htmlFor="location" className="block mb-2 font-semibold text-gray-600 text-lg">Location</label>
+        <input readOnly defaultValue={location} required name="location" type="text" id="location"
+          className="input bg-gradient-to-br from-cyan-100 to-yellow-50 text-gray-600 w-full px-5 py-3 rounded-lg focus:ring-2 focus:ring-purple-500 transition-colors"
+        />
+      </div>
 
+      {/* Volunteers Needed */}
+      <div>
+        <label htmlFor="volunteernumber" className="block mb-2 font-semibold text-gray-600 text-lg">Volunteers Needed</label>
+        <input readOnly defaultValue={volunteernumber} required name="volunteernumber" type="number" id="volunteernumber" min="1"
+          className="input bg-gradient-to-br from-cyan-100 to-yellow-50 text-gray-600 w-full px-5 py-3 rounded-lg focus:ring-2 focus:ring-purple-500 transition-colors"
+        />
+      </div>
 
-        <label className="">Your Name</label> 
-        <input readOnly required name="Volunteer_Name" defaultValue={user.displayName} type="text" placeholder="Volunteer Name"  className="border  max-w-xs py-1 px-2 rounded-md"/>
+      {/* Deadline */}
+      <div>
+        <label htmlFor="deadline" className="block mb-2 font-semibold text-gray-600 text-lg">Application Deadline</label>
+        <input readOnly defaultValue={deadline} name="deadline" type="text" id="deadline"
+          className="input bg-gradient-to-br from-cyan-100 to-yellow-50 text-gray-600 w-full px-5 py-3 rounded-lg focus:ring-2 focus:ring-purple-500 transition-colors"
+        />
+      </div>
 
-        <label className="">Your Email</label> 
-        <input readOnly required name="Volunteer_Email" type="email" defaultValue={user.email} placeholder="Volunteer Email"  className="border  max-w-xs py-1 px-2 rounded-md"/>
-
-
-
-        <button className="btn btn-info mt-4">Request</button>
-
-
-
-               
-
-            
-        
-        </form>
-</div>
-        
+      {/* Organizer Info */}
+      <div className="grid md:grid-cols-2 gap-6">
+        <div>
+          <label htmlFor="organizerName" className="block mb-2 font-semibold text-gray-600 text-lg">Organizer Name</label>
+          <input readOnly required name="organizerName" type="text" id="organizerName" defaultValue={organizerName}
+            className="input bg-gradient-to-br from-cyan-100 to-yellow-50 text-gray-600 w-full px-5 py-3 rounded-lg focus:ring-2 focus:ring-purple-500 transition-colors"
+          />
         </div>
+        <div>
+          <label htmlFor="organizerEmail" className="block mb-2 font-semibold text-gray-600 text-lg">Organizer Email</label>
+          <input readOnly required name="organizerEmail" type="text" id="organizerEmail" defaultValue={organizerEmail}
+            className="input bg-gradient-to-br from-cyan-100 to-yellow-50 text-gray-600 w-full px-5 py-3 rounded-lg focus:ring-2 focus:ring-purple-500 transition-colors"
+          />
+        </div>
+      </div>
+
+      {/* User Info */}
+      <div className="grid md:grid-cols-2 gap-6">
+        <div>
+          <label htmlFor="volunteerName" className="block mb-2 font-semibold text-gray-600 text-lg">Your Name</label>
+          <input readOnly required name="Volunteer_Name" defaultValue={user.displayName} type="text" id="volunteerName"
+            className="input bg-gradient-to-br from-cyan-100 to-yellow-50 text-gray-600 w-full px-5 py-3 rounded-lg focus:ring-2 focus:ring-purple-500 transition-colors"
+          />
+        </div>
+        <div>
+          <label htmlFor="volunteerEmail" className="block mb-2 font-semibold text-gray-600 text-lg">Your Email</label>
+          <input readOnly required name="Volunteer_Email" type="email" defaultValue={user?.email} id="volunteerEmail"
+            className="input bg-gradient-to-br from-cyan-100 to-yellow-50 text-gray-600 w-full px-5 py-3 rounded-lg focus:ring-2 focus:ring-purple-500 transition-colors"
+          />
+        </div>
+      </div>
+
+      {/* Suggestion */}
+      <div>
+        <label htmlFor="suggestion" className="block mb-2 font-semibold text-gray-600 text-lg">Your Suggestion</label>
+        <textarea name="suggestion" id="suggestion" rows="4"
+          placeholder="If you have any suggestions, please let us know."
+          className="textarea bg-gradient-to-br from-cyan-100 to-yellow-50 text-gray-600 w-full px-5 py-3 rounded-lg focus:ring-2 focus:ring-purple-500 transition-colors"
+        ></textarea>
+      </div>
+
+      {/* Hidden Thumbnail Field */}
+      <input type="hidden" name="thumbnail" value={thumbnail} />
+
+      {/* Submit Button */}
+      <button type="submit"
+        className="btn w-full bg-gradient-to-r from-purple-600 to-indigo-500 text-white font-bold py-3 rounded-lg text-xl hover:from-purple-700 hover:to-indigo-700 shadow-lg transition-all"
+      >
+        Request To Be A Volunteer
+      </button>
+    </form>
+  </div>
+</div>
+
+
+
     );
 };
 

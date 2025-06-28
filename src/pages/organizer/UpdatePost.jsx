@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import "react-datepicker/dist/react-datepicker.css";
 import { subDays } from 'date-fns';
 import DatePicker from 'react-datepicker';
+import UseDateFormattery from '../../hooks/UseDateFormattery';
 
 
 const UpdatePost = () => {
@@ -23,7 +24,9 @@ const UpdatePost = () => {
   
 
     const postData=useLoaderData()
-    const{category,description,location, organizerEmail, organizerName, thumbnail,title,volunteernumber,  _id  }=postData
+    const{category,description,location, organizerEmail, organizerName, deadline, thumbnail,title,volunteernumber,  _id  }=postData
+
+     const currentDeadline=UseDateFormattery(deadline)
     
 
     const handleUpdatePost=async(e)=>{
@@ -125,7 +128,7 @@ const UpdatePost = () => {
 <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100 text-gray-800 py-12 px-4">
       <div className="w-full max-w-2xl p-10 bg- rounded-3xl shadow-xl transform transition-all duration-500 ">
         <h2 className="text-4xl font-extrabold text-center mb-10 text-purple-700">
-          Update This Post
+          Update : {title}
         </h2>
 
         <form onSubmit={handleUpdatePost} className="space-y-7">
@@ -237,7 +240,8 @@ const UpdatePost = () => {
             <label htmlFor="deadline" className="block mb-2 font-semibold text-gray-700 text-lg">
               Application Deadline
             </label>
-                   <DatePicker name="deadline" className="text-black border p-2 rounded-lg" 
+            <p className='my-2 text-sm'>Current Deadline: {currentDeadline}</p>
+                   <DatePicker   name="deadline" className="text-black border p-2 rounded-lg" 
                      selected={startDate} 
                      minDate={subDays(new Date(), 0)}
                      onChange={(date)=> setStartDate(date)}/>

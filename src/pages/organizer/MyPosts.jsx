@@ -12,6 +12,8 @@ const MyPosts = () => {
 
     const[posts, setPosts]=useState([])
     const[volunteers, setVolunteers]=useState([])
+    const[loading,setLoading]=useState(false)
+
     
 
     useEffect(()=>{
@@ -30,9 +32,20 @@ const MyPosts = () => {
     //volunteer needed related (by the organizer)
     
     const getData=async()=>{
-
-        const {data}=await axiosSecure(`/organization/${user.email}`)
+      try {
+        setLoading(true)
+         const {data}=await axiosSecure(`/organization/${user.email}`)
         setPosts(data)
+        
+      } catch (error) {
+        console.log(error);
+        
+        
+      } finally{
+        setLoading(false)
+      }
+
+        
         
     }
 
@@ -83,10 +96,26 @@ if (result.isConfirmed) {
 
 
 // volunteers request related
+
+
     const getVolunteersData=async()=>{
-        
+      try {
+        setLoading(true)
+
         const {data}=await axiosSecure(`/volunteer/${user?.email}`)
         setVolunteers(data)
+
+        
+      } catch (error) {
+        console.log(error);
+        
+      }finally{
+        setLoading(false)
+
+      }
+
+        
+        
         
     }
 
@@ -130,10 +159,19 @@ if (result.isConfirmed) {
 
 
     }
+
+       if (loading) {
+    return (
+      <div className="flex justify-center items-center h-80 ">
+        {/* <div className="w-10 h-10 border-4 border-dashed rounded-full animate-spin border-blue-600"></div> */}
+        <span className="loading loading-spinner text-primary"></span>
+      </div>
+    );
+  }
     
 
     return (
-            <div className='pb-40'>
+            <div className={`pb-40 `}>
 
                 {/* my Volunteer Need post */}
             <h1 className='text-center font-bold text-3xl mt-3'>My volunteer need post</h1>
@@ -141,6 +179,7 @@ if (result.isConfirmed) {
              <div className="mt-9 ">
 
               {
+                
                 posts.length === 0 && <div className="flex flex-col items-center my-10 ">
 
                 <img className="w-40" src={noDataImg} alt="" />
@@ -230,7 +269,7 @@ if (result.isConfirmed) {
                 <thead>
                   <tr>
                     <th></th>
-                    <th>Posted By</th>
+                    <th>Your Email</th>
                     <th>Title</th>
                     <th>Location</th>
             
