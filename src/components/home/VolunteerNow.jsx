@@ -4,22 +4,41 @@ import SInglePost from '../allcards/SInglePost';
 import { Link } from 'react-router';
 import UseAuth from '../../hooks/UseAuth';
 import { Fade } from 'react-awesome-reveal';
+import toast from 'react-hot-toast';
 
 const VolunteerNow = () => {
 
       const[posts, setPosts]=useState([]);
 
-      const{user}=UseAuth()
+      const{user }=UseAuth()
+      const [loading, setLoading]=useState(false)
     
         useEffect(()=>{
             getData()
         }, [])
     
         const getData=async()=>{
-            const {data}=await axios(`https://servetogether-server.vercel.app/urgentPosts`, ) //get operations
+            try{
+                setLoading(true)
+                 const {data}=await axios(`https://servetogether-server.vercel.app/urgentPosts`, ) //get operations
             setPosts(data)
-            
+                
+            } catch(err){
+                console.error('error, fetching posts', err)
+                toast.error('Enable Connection to see all posts')
+            } finally{
+                setLoading(false)
+            }
+    
         }
+
+        if (loading) {
+    return (
+      <div className="flex justify-center items-center h-40">
+        <div className="w-10 h-10 border-4 border-dashed rounded-full animate-spin border-blue-600"></div>
+      </div>
+    );
+  }
 
 
     return (
@@ -27,9 +46,8 @@ const VolunteerNow = () => {
             <Fade  >
             <p className='text-center font-semibold text-3xl my-10 text-orange-400'> Urgent Posts {posts.length}</p>
             </Fade>
-            {/* {user.email} */}
 
-<Fade triggerOnce>
+       <Fade triggerOnce>
 
              <div className="grid px-3  md:px-5 lg:px-10 md:grid-cols-2 lg:grid-cols-3 gap-7">
                 {

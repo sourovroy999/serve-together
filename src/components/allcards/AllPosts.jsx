@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import SInglePost from "./SInglePost";
+import UseAuth from "../../hooks/UseAuth";
+import toast from "react-hot-toast";
 
 
 const AllPosts = () => {
@@ -8,22 +10,44 @@ const AllPosts = () => {
       const[search,setsearch]=useState('')
       const[searchText,setSearchText]=useState('')
     // console.log(posts);
+    const[loading,setLoading]=useState(false)
 
       useEffect(()=>{
           document.title='serveTogether | All Posts'
         }, [])
+        
 
     useEffect(()=>{
-           const getData=async()=>{
-        const {data}=await axios(`https://servetogether-server.vercel.app/organizationsPosts?search=${search}`, ) //get operations
+       getData()
+    }, [search])
+
+       const getData=async()=>{
+
+            try{
+                setLoading(true)
+                const {data}=await axios(`https://servetogether-server.vercel.app/organizationsPosts?search=${search}`, ) //get operations
         // console.log(data);
         setPosts(data)
-        
+
+            }catch(err){
+                console.log('error while loading posts', err);
+                toast.error('Enable Your Internet Connection to see all Posts')
+                
+
+            }finally{
+                setLoading(false)
+
+            }
+   
     }
 
-
-        getData()
-    }, [search])
+    if (loading) {
+    return (
+      <div className="flex justify-center items-center h-40">
+        <div className="w-10 h-10 border-4 border-dashed rounded-full animate-spin border-blue-600"></div>
+      </div>
+    );
+  }
 
  
 
@@ -40,6 +64,8 @@ const AllPosts = () => {
         setsearch('')
         setSearchText('')
     }
+
+      
     
 
     return (
