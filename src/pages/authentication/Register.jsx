@@ -59,7 +59,9 @@ const Register = () => {
 
       // if(user || loading) return
 
-
+     useEffect(()=>{
+         document.title='serveTogether | Sign Up'
+       }, [])
 
 
 

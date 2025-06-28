@@ -3,7 +3,7 @@ import axios from 'axios';
 import toast from 'react-hot-toast';
 import UseAuth from '../../hooks/UseAuth';
 import "react-datepicker/dist/react-datepicker.css";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import DatePicker from 'react-datepicker';
 
 
@@ -22,6 +22,10 @@ const BeAVolunteer = () => {
     console.log(postData);
     const{category,description,location, organizerEmail, organizerName, deadline, thumbnail,title,volunteernumber,  _id  }=postData
     console.log(postData);
+
+      useEffect(()=>{
+          document.title='serveTogether | Be A Volunteer'
+        }, [])
     
 
     const handleBeAVolunteer=async(e)=>{

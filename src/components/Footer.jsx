@@ -69,7 +69,7 @@ const Footer = () => {
                    </div>
 
                       <div>
-                    <input placeholder='input  Enter Your Email To Spread Kindness With us!' type="text" className=' mt-5 bg-white rounded-2xl px-3 py-2  w-full' />
+                    <input placeholder=' Enter Your Email To Spread Kindness With us!' type="email" className=' mt-5 bg-white text-base-content rounded-2xl px-3 py-2  w-full' />
                      </div>
                 </div>
                

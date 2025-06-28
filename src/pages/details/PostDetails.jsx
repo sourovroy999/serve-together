@@ -1,5 +1,6 @@
 import { Link, useLoaderData } from "react-router";
 import UseDateFormattery from "../../hooks/UseDateFormattery";
+import { useEffect } from "react";
 
 const PostDetails = () => {
 
@@ -7,6 +8,10 @@ const PostDetails = () => {
     const{category,description,location, organizerEmail, organizerName,deadline, thumbnail,title,volunteernumber,  _id  }=postData
 
     const newDeadline=UseDateFormattery(deadline)
+
+      useEffect(()=>{
+          document.title='serveTogether | Post Details'
+        }, [])
 
     
     

@@ -5,13 +5,18 @@ import "react-datepicker/dist/react-datepicker.css";
 
 import imageone from '../assets/banners/volunteer-one.jpg'
 import CountSystem from "../components/home/CountSystem";
+import { useEffect } from "react";
 
 const Home = () => {
+
+      useEffect(()=>{
+          document.title='serveTogether | Home'
+        }, [])
 
     return (
         <div className="">
 
-            
+
             
 
             {/* banner section */}

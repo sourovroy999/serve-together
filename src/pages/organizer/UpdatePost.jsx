@@ -3,11 +3,16 @@ import axios from 'axios';
 import toast from 'react-hot-toast';
 import UseAuth from '../../hooks/UseAuth';
 import UseAxiosSecure from '../../hooks/UseAxiosSecure';
+import { useEffect } from 'react';
 
 const UpdatePost = () => {
 
     const{user, logOut}=UseAuth()  //eta use korte hbe **
     const axiosSecure=UseAxiosSecure()
+
+      useEffect(()=>{
+          document.title='serveTogether | Update Your Post'
+        }, [])
 
   
 
@@ -109,7 +114,7 @@ const UpdatePost = () => {
 
         <label  className="">Organizer Email</label> 
         <input readOnly defaultValue={organizerEmail} name="organizerEmail" type="text" placeholder="Organizer Email"  className="border   max-w-xs py-1 px-2 rounded-md"/>
-       <button className="btn btn-info mt-4">Update</button>
+       <button className="btn text-white btn-info mt-4">Update</button>
       
         </form>
 </div>

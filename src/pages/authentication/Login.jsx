@@ -104,6 +104,10 @@ navigate(from, {replace:true})
     //     );
     //   }
 
+      useEffect(()=>{
+          document.title='serveTogether | Log in'
+        }, [])
+
   
 
   

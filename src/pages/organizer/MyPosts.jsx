@@ -18,6 +18,9 @@ const MyPosts = () => {
     console.log(volunteers);
     
 
+    useEffect(()=>{
+      document.title='serveTogether | Manage Your Posts'
+    }, [])
 
     
 
@@ -181,9 +184,9 @@ if (result.isConfirmed) {
                         <td>{post.title}</td>
                         <td>{post.location}</td>
                         <td>{post.deadline}</td> 
-                        <td className="flex">
-                            <Link to={`/update/${post._id}`} className="btn">Update</Link>
-                            <button onClick={()=>handlePostDelete(post._id)} className="btn">delete</button>
+                        <td className="flex gap-4">
+                            <Link to={`/update/${post._id}`} className="btn text-white bg-blue-400 hover:bg-blue-500">Update</Link>
+                            <button onClick={()=>handlePostDelete(post._id)} className="btn text-white bg-red-500 hover:bg-red-600">delete</button>
                         </td>
                     </tr>)
                   }
@@ -205,7 +208,7 @@ if (result.isConfirmed) {
 
 
 
-       <hr />
+       <hr className="mt-9" />
 
 
 
@@ -253,7 +256,7 @@ if (result.isConfirmed) {
                         <td>{volunteer.deadline}</td> 
                         <td className="flex">
                             
-                            <button onClick={()=>handleVolunteerCancel(volunteer._id)}  className="btn">Cancel</button>
+                            <button onClick={()=>handleVolunteerCancel(volunteer._id)}  className="btn bg-yellow-400 hover:bg-yellow-500 text-white">Cancel</button>
                         </td>
                     </tr>)
                   }

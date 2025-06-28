@@ -9,6 +9,10 @@ const AllPosts = () => {
       const[searchText,setSearchText]=useState('')
     // console.log(posts);
 
+      useEffect(()=>{
+          document.title='serveTogether | All Posts'
+        }, [])
+
     useEffect(()=>{
            const getData=async()=>{
         const {data}=await axios(`https://servetogether-server.vercel.app/organizationsPosts?search=${search}`, ) //get operations
